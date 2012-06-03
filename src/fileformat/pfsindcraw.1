@@ -1,0 +1,41 @@
+.TH "pfsindcraw" 1
+.SH NAME
+pfsindcraw \- Read an image in a camera RAW file format supported by
+DCRAW and write pfs stream to the standard output
+.SH SYNOPSIS
+.B pfsindcraw
+<file> [<file>...]
+.SH DESCRIPTION
+This command can be used to read images in a camera RAW file format
+supported by DCRAW and write pfs stream to the standard output as if
+read from 16bit ppm file (no gamma correction, white balance from
+camera if available). In principle such data should conform to the
+definition of High Dynamic Range contents used in the pfstools
+package.
+
+A raw image may in some cases require clamping to remove zero values,
+see examples.
+
+At the moment this is a stub with a basic functionality. So far, it
+was tested with the following raw file formats:
+  Canon 350D (*.cr2)
+
+
+.SH EXAMPLES
+.TP
+pfsindcraw img_0070.cr2 | pfsview
+
+View a full dynamic range of a raw image from Canon 350D camera.
+
+.TP  
+pfsindcraw img_0070.cr2 | pfsclamp --rgb | pfstmo_drago03 | pfsout img.jpg
+
+Tone map a raw image and save it as JPEG. Clamping is used to remove
+zero values, which otherwise result in NaN values after tone mapping.
+ 
+.SH "SEE ALSO"
+.BR pfsout (1)
+.BR pfsinppm (1)
+.SH BUGS
+Please report bugs and comments to Grzegorz Krawczyk
+<gkrawczyk@users.sourceforge.net>.

@@ -1,0 +1,174 @@
+Release Notes
+-------------------------------------------------------------------     
+pfstools 1.8.3 released
+
+This realease brings an updated "pfsview", which is now 100% QT4
+application. Some cosmetic problems as well as "Fit window to content"
+have been fixed. Other minor fixes are listed below.
+
+     	* fixed: pfsdisplayfunction properly interpolates display LUT
+	* fixed: bug #3080304 - configure uses non-portable test(1) syntax
+	* fixed: bug #1766263 - pfsinhdrgen fails silently on pfsin failure. - partially
+	* fixed: pfsview the entire code converted from qt3 to qt4 (fixes bug #3127946)
+	* fixed: "Fit window to content" works again in pfsview
+	* added: window icon in pfsview
+	* added: improved image file saving in pfsview
+
+
+pfstools - README 
+-------------------------------------------------------------------     
+      
+pfstools is a set of command line (and one GUI) programs for reading,
+writing, manipulating and viewing high-dynamic range (HDR) images and
+video frames. All programs in the package exchange data using unix
+pipes and a simple generic HDR image format (pfs). The concept of the
+pfstools is similar to netpbm package for low-dynamic range images.
+
+pfstools offers also a good integration with GNU Octave and
+matlab. pfstools can serve as a matlab or Octave toolbox for reading
+and writing HDR images or simply to effectively store large matrices.
+
+pfs in not just another format for storing HDR images (and there are
+already quite a few of them). It is more an attempt to integrate the
+existing HDR image formats by providing a simple data format that can
+be used to exchange data between applications.
+
+If you use the software for your research work, please consider citing
+the paper:
+
+Rafal Mantiuk, Grzegorz Krawczyk, Radoslaw Mantiuk and Hans-Peter Seidel.
+High Dynamic Range Imaging Pipeline: Perception-motivated Representation
+of Visual Content.
+In: Proc. of Human Vision and Electronic Imaging XII. 649212.
+
+@inproceedings{mantiuk:2007:hvei,
+ author = {Mantiuk, Rafa{\l} and Krawczyk, Grzegorz and Mantiuk, Rados{\l}aw and Seidel, Hans-Peter},
+ editor = {Rogowitz, Bernice E. and Pappas, Thrasyvoulos N. and Daly, Scott J.},
+ title = {High Dynamic Range Imaging Pipeline: Perception-motivated Representation of Visual Content},
+ booktitle = {Human Vision and Electronic Imaging XII},
+ publisher = {SPIE},
+ year = {2007},
+ volume = {6492},
+ number = {649212},
+ series = {Proceedings of SPIE},
+ address = {San Jose, USA},
+ month = {February},
+}
+
+The paper is an introduction to both pfstools and HDR imaging in
+general. It can be downloaded from:
+
+http://www.mpi-inf.mpg.de/resources/pfstools/papers/mantiuk07hdr_pipeline.pdf
+
+        
+1. Compilation
+-------------------------------------------------------------------
+
+1.1 To build from a 'tar' archive:
+
+> ./configure <options>
+
+for example following command will configure PFS tools to be installed
+in user's 'local/' directory:
+
+> ./configure --prefix=$HOME/local --with-octave-dir=$HOME/local/lib
+
+then compile
+
+> make
+
+and install
+
+> make install
+
+NOTE: When you specify a different compiler using for example
+CXX=g++-3.2, libtool may incorrectly interpret compiler and use gcc
+instead of g++ to link the pfs library. This results in reallocation
+error in programs that link dynamically to that library. 
+
+NOTE: Automake 1.6 or later is required!
+        
+1.2 To build from CVS:
+
+> ./reconf
+
+or
+
+> libtoolize
+> aclocal
+> autoheader
+> automake --add-missing
+> autoconf
+
+then proceed as for the 'tar' archive distribution. You may
+need to experiment with different versions of automake, aclocal and
+autoconf (automake-1.9, aclocal-1.9 and automake2.50 work on Debian).
+
+2. Directory Layout
+-------------------------------------------------------------------
+
+doc - documentation
+src - all sources go there
+  pfs          - pfs library
+  fileformat   - readers and writters for various file formats
+  octave       - GNU Octave scripts and libraries
+  matlab       - matlab mex sources and functions
+  pfsview      - qt application for viewing hdr images and other data
+                 that can be stored in the pfs stream
+  pfsglview    - similar as pfsview, but uses OpenGL & GLUT instead of Qt
+  visualc      - (CVS only) preliminary project files for compiling under
+                 MS Visual C++ (only a few commands)
+
+
+3. Dependencies
+-------------------------------------------------------------------
+
+Some of the pfs tools require external libraries to be built. As
+reusing as much of existing code as possible is quite reasonable, it
+also causes quite a lot of problems when linking with several
+libraries that come in different versions. To alleviate some of such
+linking problems, the configure script of the pfs tools disables
+compilation of those applications for which the external libraries can
+not be found. Consequently, some of the pfs applications may not be
+installed after 'make install', even though the compilation was
+successful.
+
+A list of external libraries and applications that depend on them:
+
+libtiff  - pfsintiff, pfsouttiff
+libpbm   - pfsinppm, pfsoutppm
+        http://netpbm.sourceforge.net/
+ImageMagick++ - pfsinimgmagick, pfsoutimgmagick
+        http://www.imagemagick.org/script/index.php
+jpeghdr - pfsinjpeghdr, pfsoutjpeghdr
+        jpeghdr library can be found on the DVD included with the book
+        "High Dynamic Range Imaging: Acquisition, Display, and
+        Image-Based Lighting" by Erik Reinhard, Greg Ward, Sumanta
+        Pattanaik and Paul Debevec. (The Morgan Kaufmann Series in
+        Computer Graphics)       
+openexr libraries - pfsinexr, pfsoutexr
+        http://www.openexr.com/
+        
+octave, octave-forge - pfsstat, pfsoctavergb, pfsoctavelum
+        Note: testing or stable release is required.  Currently pfstools
+        do not compile with development Octave releases.
+
+mkoctfile (for building Octave's modules) - pfsread.oct,
+           pfswrite.oct, pfstransform_colorspace.oct, and others
+libqt4-gui    - pfsview
+        http://www.trolltech.com/
+dcraw - pfsindcraw
+        http://www.cybercom.net/~dcoffin/dcraw/
+opengl - pfsglview
+matlab, mex - matlab scripts and mex sources
+
+
+3. Documentation
+-------------------------------------------------------------------
+
+First check the list of frequently asked questions in
+./doc/faq.txt. Then browse relevant manual pages, which accompany each
+program. The documentation for the pfs library API can be generated
+with DoxyGen or found in the header files. If you want to include
+reading or writing of pfs streams in your applications, refer to
+./doc/pfs_format_spec.pdf.

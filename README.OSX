@@ -1,0 +1,106 @@
+How to install pfstools under Mac OS X 10.5.7
+====================================================
+
+This is a step-by-step instruction how to install pfstools on Max OS X.
+
+1. Install XCode Tools (v.3.1.2)
+
+https://developer.apple.com/mac/
+
+You may need to register to download XCode Tools. You may also use g++
+from the Fink package, but this has not been tested yet.
+
+2. Install missing libraries
+
+These are unix-based libraries that have been ported to Mac. We tested
+two sources of such libraries: MacPorts and Fink. Fink is faster to
+install (all packages are pre-compiled) and we provides more libraries
+that actually compile with pfstools, so it is a recommended option as
+for now. 
+
+------ Fink -------
+
+2a.1. Install Fink package manager (v.0.9.0) 
+
+http://www.finkproject.org/
+
+2a.2. Then using FinkCommander or command line tools install the following packages:
+
+libtool14 (1.5.22-1000)
+pkgconfig (0.21-1)
+automake1.9 (1.9.6-3)
+autoconf (2.60-4)
+imagemagick-nox-dev (6.2.8-1007)
+openexr-nox-dev (1.2.2-34)
+libtiff (3.8.2-1002)
+qt4-mac (4.6.3-2)
+lcms (1.15-2)
+libjpeg (6b-17)
+libpng3 (1:1.2.29-1)
+netpbm10 (10.24-3)
+libxml2
+
+Note: The library version numbers in the parenthesis indicate only the
+versions we tested. Newer versions (and in most cases older) should
+work as well.
+
+Note: When building with imagemagick-nox-dev you may encounter compilation error: missing /usr/X11/lib/libfreetype.la. A quick (and not very elegant) fix is to remove this library from the dependency_libs line in /sw/lib/libMagick.la /sw/libMagick++.la and /sw/lib/libWand.la
+
+2a.3. Add to ~/.profile the line:
+
+export LIBRARY_PATH=/sw/lib:$LIBRARY_PATH
+
+------ MacPorts -------
+
+2b.1. Using "port" command install the following packages:
+
+openexr
+qt3-mac
+ImageMagick
+netpbm
+
+2b.2. Add to ~/.profile the line:
+
+export LIBRARY_PATH=/opt/local/lib:$LIBRARY_PATH
+
+------------------------
+
+3. Go to the pfstools directory and execute:
+
+./configure
+make
+sudo make install
+
+Note for Mac OS X Snow Leopard and later (10.6.1) you most probably need to ensure that pfstools is compiled with the 32-bit compiler. The easiest way to do it is to add CXXFLAGS to the configure script:
+ 
+./configure CXXFLAGS=-m32
+
+After successful compilation all pfstools libraries and executebles will be copied to /usr/local/.. directories.
+
+4. Add pfsview application bundle to the shell path. In the .profile file add a line:
+
+export PATH=/Applications/pfsview.app/Contents/MacOS/:$PATH
+
+Note: pfsview is currently unusable as a stand-alone application
+(cannot be run from Finder) and must be executed from a command line
+or using the 'pv' script.
+
+You may also want to add $(DESTDIR)/bin to the path if you installed
+pfstools in non-standard location (by passing --prefix to the
+configure script).
+
+
+========== Comments from other users:
+-------
+You can't use the Fink package of OpenEXR. You have to either install
+it yourself or use the ports version.  The ports version doesn't
+install a pkgconfig file though, so if you add that, you can get it.
+-------
+I had problem with finitef function in pfsview_widget.cpp I ended up
+replace finitef with isfinite both should be defined in math.h but
+what did work was to add to makefile    
+            -D_GLIBCPP_USE_C99
+as described on:
+            http://cosmocoffee.info/viewtopic.php?t=176
+and it solved the problem    
+-------

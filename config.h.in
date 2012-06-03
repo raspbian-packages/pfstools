@@ -1,0 +1,111 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Define as 1 when compiling in debug mode */
+#undef DEBUG
+
+/* Define to 1 if you have the <dlfcn.h> header file. */
+#undef HAVE_DLFCN_H
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define this if you have the GDAL library */
+#undef HAVE_LIBGDAL
+
+/* ImageMagick library used for reading/writing images. */
+#undef HAVE_LIBIMAGEMAGICK
+
+/* Define this if you have the libjpeghdr libraries */
+#undef HAVE_LIBJPEGHDR
+
+/* Define this if you have the libppm libraries */
+#undef HAVE_LIBNETPPM
+
+/* OpenEXR libraries, optional, used in io routines. */
+#undef HAVE_LIBOPENEXR
+
+/* OpenGL libraries are required. */
+#undef HAVE_LIBOPENGL
+
+/* QT libraries, optional, used in pfsview. */
+#undef HAVE_LIBQT
+
+/* Define this if you have the libtiff libraries */
+#undef HAVE_LIBTIFF
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define to the sub-directory in which libtool stores uninstalled libraries.
+   */
+#undef LT_OBJDIR
+
+/* Disable assertion checks */
+#undef NDEBUG
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* Directory where data files are located. */
+#undef PKG_DATADIR
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* Version number of package */
+#undef VERSION
+
+/* Windows compilation. */
+#undef WIN32
+
+/* Output stream for debug messages. */
+#ifdef DEBUG
+#define DEBUG_STR cerr
+#else
+#define DEBUG_STR if(1); else cerr
+#endif
+/* Output stream for verbose messages */        
+#define VERBOSE_STR if(verbose) std::cerr << PROG_NAME << ": "        
+
+
+/* On some systems iostream, string etc are in 'std' namespace */
+using namespace std; 
