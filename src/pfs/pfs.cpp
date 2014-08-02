@@ -525,8 +525,7 @@ static void writeTags( const TagContainerImpl *tags, FILE *out )
   TagList::const_iterator it;
   fprintf( out, "%d" PFSEOL, tags->getSize() );
   for( it = tags->tagsBegin(); it != tags->tagsEnd(); it++ ) {
-    fprintf( out, (const char*)(it->c_str()) );
-    fprintf( out, PFSEOL );
+    fprintf( out, "%s" PFSEOL, (const char*)(it->c_str()) );
   }
 }
 
