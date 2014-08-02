@@ -33,6 +33,11 @@ if( nargin != 0 )
   error( "Expecting no parameters" ); 
 endif
 
+if( 2 != exist( 'gausswin' ) )
+  error( "%s requires the 'signal' package - please install octave-signal\n", \
+      program_name () );
+endif
+
 firstFrame = true;
 while( true )
   pin = pfsget( pin );
