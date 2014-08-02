@@ -1,0 +1,102 @@
+Source: pfstools
+Section: graphics
+Priority: optional
+Maintainer: Debian PhotoTools Maintainers <pkg-phototools-devel@lists.alioth.debian.org>
+Uploaders: Sebastian Harl <tokkee@debian.org>, Andreas Metzler <ametzler@debian.org>
+Build-Depends: debhelper (>= 5), dpkg-dev (>= 1.14.6), gfortran,
+ dh-autoreconf, libqt4-dev, libmagick++-dev, libtiff-dev, libopenexr-dev,
+ libnetpbm10-dev, liboctave-dev, texlive-latex-base, freeglut3-dev
+Standards-Version: 3.9.5
+Homepage: http://pfstools.sourceforge.net/
+Vcs-Git: git://anonscm.debian.org/pkg-phototools/pfstools.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-phototools/pfstools.git
+
+Package: pfstools
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: pfsglview | pfsview, pfstmo, octave, octave-signal, octave-pfstools
+Suggests: dcraw, exrtools, imagemagick
+Description: command line HDR manipulation programs
+ pfstools is a set of command line (and two GUI) programs for reading,
+ writing, manipulating and viewing high-dynamic range (HDR) images and video
+ frames. All programs in this package exchange data using a simple generic
+ file format (pfs) for HDR data. It is an attempt to integrate existing file
+ formats by providing a simple data format that can be used to exchange data
+ between applications.
+ .
+ The concept of pfstools is similar to netpbm for low-dynamic range images.
+
+Package: pfsglview
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: pfstools
+Replaces: pfstools (<< 1.6.2-2)
+Description: command line HDR manipulation programs (OpenGL/GLUT viewer)
+ PFS is a high-dynamic range (HDR) image format. It is an attempt to integrate
+ existing file formats by providing a simple data format that can be used to
+ exchange data between applications.
+ .
+ This package contains a viewer implemented in OpenGL/GLUT.
+
+Package: pfsview
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: pfstools
+Replaces: pfstools (<< 1.6.2-2)
+Description: command line HDR manipulation programs (Qt viewer)
+ PFS is a high-dynamic range (HDR) image format. It is an attempt to integrate
+ existing file formats by providing a simple data format that can be used to
+ exchange data between applications.
+ .
+ This package contains a viewer implemented in Qt.
+
+Package: pfstools-dbg
+Section: debug
+Architecture: any
+Priority: extra
+Depends: pfstools (= ${binary:Version}), pfsglview (= ${binary:Version}),
+ pfsview (= ${binary:Version}), libpfs-1.2-0 (= ${binary:Version}),
+ ${misc:Depends}
+Description: command line HDR manipulation programs (debugging symbols)
+ PFS is a high-dynamic range (HDR) image format. It is an attempt to integrate
+ existing file formats by providing a simple data format that can be used to
+ exchange data between applications.
+ .
+ This package contains the debugging symbols for the pfstools binaries and the
+ shared library.
+
+Package: libpfs-dev
+Section: libdevel
+Architecture: any
+Depends: libpfs-1.2-0 (= ${binary:Version}), ${misc:Depends}
+Description: C++ library to read and write pfs files (development files)
+ PFS is a high-dynamic range (HDR) image format. It is an attempt to integrate
+ existing file formats by providing a simple data format that can be used to
+ exchange data between applications. This library can be used to write custom
+ applications that can integrate with the existing pfstools programs.
+ .
+ This package contains the header files and the static library.
+
+Package: libpfs-1.2-0
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: C++ library to read and write pfs files
+ PFS is a high-dynamic range (HDR) image format. It is an attempt to integrate
+ existing file formats by providing a simple data format that can be used to
+ exchange data between applications. This library can be used to write custom
+ applications that can integrate with the existing pfstools programs.
+ .
+ This package contains the shared library.
+
+Package: octave-pfstools
+Section: math
+Architecture: any
+Depends: octave, ${shlibs:Depends}, ${misc:Depends}
+Description: octave bindings for pfstools
+ PFS is a high-dynamic range (HDR) image format. It is an attempt to integrate
+ existing file formats by providing a simple data format that can be used to
+ exchange data between applications.
+ .
+ This package contains octave bindings to read and write PFS files.
+

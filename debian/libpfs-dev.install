@@ -1,0 +1,6 @@
+usr/include/*
+usr/lib/libpfs*.a
+usr/lib/libpfs*.la
+usr/lib/libpfs*.so
+usr/lib/pkgconfig/*
+

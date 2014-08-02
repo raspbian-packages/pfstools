@@ -1,0 +1,111 @@
+#!/usr/bin/make -f
+# debian/rules for pfstools
+#
+# Written by Sebastian Harl <tokkee@debian.org>
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# These are used for cross-compiling and for saving the configure script
+# from having to guess our platform (since we know it already)
+DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+
+CPPFLAGS = $(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS = $(shell dpkg-buildflags --get CFLAGS)
+CXXFLAGS = $(shell dpkg-buildflags --get CXXFLAGS)
+CXXFLAGS += -Wall
+LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS)
+
+MDIR = $(shell octave-config  --print LOCALFCNFILEDIR)
+OCTDIR = $(shell octave-config  --print LOCALOCTFILEDIR)
+
+confflags = --host=$(DEB_HOST_GNU_TYPE) \
+			--build=$(DEB_BUILD_GNU_TYPE) \
+			--prefix=/usr \
+			--mandir=\$${prefix}/share/man \
+			--with-octave-m-dir=$(MDIR)/pfstools \
+			--with-octave-oct-dir=$(OCTDIR)/pfstools
+
+# Matlab is not available in Debian.
+confflags += --disable-matlab
+
+# These libraries are not available / unusable in Debian.
+confflags += --disable-jpeghdr --disable-gdal
+
+config.status: configure
+	dh_testdir
+	dh_autoreconf
+	
+	./configure $(confflags) CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS)" \
+		CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)"
+
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep: build-stamp
+
+build-stamp: config.status
+	dh_testdir
+	
+	$(MAKE)
+	
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	
+	[ ! -f Makefile ] || $(MAKE) clean
+	[ ! -f Makefile ] || $(MAKE) distclean
+	
+	dh_autoreconf_clean	
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+	
+	$(MAKE) DESTDIR=$(CURDIR)/debian/tmp install
+	
+	chmod 644 debian/tmp/$(MDIR)/pfstools/*
+	
+	# these binaries are not available
+	rm debian/tmp/usr/share/man/man1/pfs*jpeghdr.1
+	rm debian/tmp/usr/share/man/man1/pfsingdal.1
+
+binary-indep: build install
+	# nothing to do here
+
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs ChangeLog
+	dh_installdocs README TODO doc/faq.txt doc/pfs_format_spec.pdf
+	dh_installdocs -A AUTHORS
+	dh_installexamples
+	dh_install --sourcedir=debian/tmp --fail-missing
+	# these files have been installed twice by dh_install
+	rm -f debian/pfstools/usr/bin/pfs*view debian/pfstools/usr/bin/pfsv \
+		debian/pfstools/usr/share/man/man1/pfsv.1 \
+		debian/pfstools/usr/share/man/man1/pfs*view.1
+	dh_installman
+	dh_link
+	dh_strip --dbg-package=pfstools-dbg
+	# mkoctfile removes any symbol table and relocation information from the
+	# .oct files making them unusable for the -dbg package
+	rm -rf debian/pfstools-dbg/usr/lib/debug/usr/lib/octave/
+	dh_compress -X.pdf
+	dh_fixperms
+	dh_makeshlibs
+	dh_installdeb
+	dh_shlibdeps -Llibpfs-1.2-0 -ldebian/libpfs-1.2-0/usr/lib/
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install
+
