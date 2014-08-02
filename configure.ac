@@ -24,13 +24,10 @@ dnl
 AC_ARG_ENABLE(debug,
 		AS_HELP_STRING([--enable-debug],[Enable debug symbols and asserts]),
 		 [if test "$enable_debug" = "yes" ; then
-                     temp_CXXFLAGS=`echo $CXXFLAGS | sed "s/-O./ /; s/-g//"`
-		     CXXFLAGS="-g $temp_CXXFLAGS"
+		     CXXFLAGS="-g $CXXFLAGS"
 		     AC_DEFINE([DEBUG])
 		  fi],
                   [enable_debug="no"
-                     temp_CXXFLAGS=`echo $CXXFLAGS | sed "s/-O./ /; s/-g//"`
-   	             CXXFLAGS="-O3 $temp_CXXFLAGS"
                      AC_DEFINE(NDEBUG, 1, [Disable assertion checks])
                   ])
 
