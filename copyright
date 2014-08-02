@@ -1,0 +1,122 @@
+This package was debianized by Sebastian Harl <tokkee@debian.org> on
+Mon, 11 Jun 2007 17:28:22 +0200.
+
+It was downloaded from <http://www.mpi-inf.mpg.de/resources/pfstools/>.
+
+Upstream Authors:
+	Grzegorz Krawczyk <krawczyk@mpi-sb.mpg.de>
+	Rafal Mantiuk <mantiuk@mpi-sb.mpg.de>
+
+	For contributions, see AUTHORS.
+
+Copyright Holders:
+	Free Software Foundation, Inc.
+	Grzegorz Krawczyk <krawczyk@mpi-sb.mpg.de>
+	Martin Lambers <marlam@marlam.de>
+	Rafal Mantiuk <mantiuk@mpi-sb.mpg.de>
+
+License:
+
+	File src/fileformat/pfsingdal.cpp
+	Copyright © 2008 Martin Lambers <marlam@marlam.de>
+
+	All other files (except doc/data_model.png, doc/pfs_format_spec.tex, m4/*,
+	                 src/pfs/* and some files in src/hdrhtml/)
+	Copyright © 2003-2009 Rafal Mantiuk <mantiuk@mpi-sb.mpg.de>
+	Copyright © 2003-2005 Grzegorz Krawczyk <krawczyk@mpi-sb.mpg.de>
+
+	Parts of the files
+	    src/hdrhtml/hdrhtml_hdrlabs_templ/hdrhtml_assets/hdr_viewer.js
+	    src/hdrhtml/hdrhtml_hdrlabs_templ/hdrhtml_page_templ.html
+	Copyright © Christian Bloch
+
+	This package is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
+
+	This package is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this package; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+	USA.
+
+On Debian systems, the complete text of the GNU General Public License
+can be found in `/usr/share/common-licenses/GPL'.
+
+	Files src/pfs/*
+	Copyright © 2003-2004 Rafal Mantiuk <mantiuk@mpi-sb.mpg.de>
+	Copyright © 2003-2004 Grzegorz Krawczyk <krawczyk@mpi-sb.mpg.de>
+
+	This library is free software; you can redistribute it and/or modify it
+	under the terms of the GNU Lesser General Public License as published by
+	the Free Software Foundation; either version 2.1 of the License, or (at
+	your option) any later version.
+
+	This library is distributed in the hope that it will be useful, but
+	WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+	or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public
+	License for more details.
+
+	You should have received a copy of the GNU Lesser General Public
+	License along with this library; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+	USA.
+
+On Debian systems, the complete text of the GNU Lesser General Public License
+can be found in `/usr/share/common-licenses/LGPL'.
+
+	Files doc/data_model.png
+	      doc/pfs_format_spec.tex
+	Copyright © 2003 Rafal Mantiuk <mantiuk@mpi-sb.mpg.de>
+	Copyright © 2003 Grzegorz Krawczyk <krawczyk@mpi-sb.mpg.de>
+
+	Permission is granted to copy, distribute and/or modify this document
+	under the terms of the GNU Free Documentation License, Version 1.2 or
+	any later version published by the Free Software Foundation; with no
+	Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+	copy of the license is included in the section entitled "GNU Free
+	Documentation License".
+
+On Debian systems, the complete text of the GNU Free Documentation License
+can be found in `/usr/share/common-licenses/GFDL'.
+
+	Files m4/*.m4
+	Copyright © 1996-2008 Free Software Foundation, Inc.
+
+	This file is free software; the Free Software Foundation gives
+	unlimited permission to copy and/or distribute it, with or without
+	modifications, as long as this notice is preserved.
+
+	File src/hdrhtml/hdrhtml_hdrlabs_templ/hdrhtml_assets/mootools-1.2.4.js
+	Copyright © 2006-2009 Valerio Proietti
+
+	File src/hdrhtml/hdrhtml_hdrlabs_templ/hdrhtml_assets/mouse2touch.js
+	Copyright © Chi Wai Lau
+	Copyright © Scott Kyle
+
+	Permission is hereby granted, free of charge, to any person obtaining a
+	copy of this software and associated documentation files (the "Software"),
+	to deal in the Software without restriction, including without limitation
+	the rights to use, copy, modify, merge, publish, distribute, sublicense,
+	and/or sell copies of the Software, and to permit persons to whom the
+	Software is furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+	THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+	DEALINGS IN THE SOFTWARE.
+
+The Debian packaging is © 2007-2010, Sebastian Harl <tokkee@debian.org> and
+is licensed under the GPL, version 2 or later, see above.
+
