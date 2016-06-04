@@ -1,0 +1,17 @@
+To compile pfstools from sources on OSX, you need:
+1. XCode
+2. Any of:
+   Homebrew - http://brew.sh/ (recommended)
+   Fink - http://www.finkproject.org/
+   MacPorts - https://www.macports.org/
+
+Refer to REAME file for the instruction on how to compile with cmake.
+
+===== Image Magick =====
+
+In case of problems with ImageMagick on Mountain Lion:
+
+brew install libtool --universal
+brew link libtool --force
+brew install imagemagick --with-magick-plus-plus
+

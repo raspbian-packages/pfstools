@@ -1,0 +1,14 @@
+pfstools can be compiled under Windows from the cygwin
+environment. You can download cygwin from: http://www.cygwin.com/
+
+The compilation with cygwin was tested on 4 Oct 2014 using
+cmake. Refer to the README file for the instruction how to compile
+with cmake.
+
+You may need to install x window client to use pfsview or pfsglview. 
+
+Check README file for the complete list of dependencies. 
+
+OpenEXR library must be build from sources since no cygwin development package is
+available. Sources can be downloaded from http://www.openexr.com/. It is recommended to use cmake to compile OpenEXR.
+
