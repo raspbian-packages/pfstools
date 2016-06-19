@@ -1,0 +1,232 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: src/*
+Copyright: 2003-2005, Rafal Mantiuk and Grzegorz Krawczyk
+License: GPL-2+
+
+Files: src/camera/*
+Copyright: 2003, 2004, 2007, Grzegorz Krawczyk
+License: GPL-2+
+
+Files: src/camera/dcraw2hdrgen.in
+  src/camera/jpeg2hdrgen.in
+  src/camera/pfsinhdrgen.in
+Copyright: 2004, Grzegorz Krawczyk, <gkrawczyk@users.sourceforge.net>
+License: GPL-2+
+
+Files: src/camera/mitsunaga99.cpp
+  src/camera/mitsunaga99.h
+  src/camera/mitsunaga99_numerical.cpp
+  src/camera/mitsunaga99_numerical.h
+Copyright: 2006, Radoslaw Mantiuk
+License: GPL-2+
+
+Files: src/camera/pfsalign.cpp
+Copyright: 2003-2013, Rafal Mantiuk and Grzegorz Krawczyk
+License: LGPL-2.1+
+
+Files: src/camera/pfsinme.in
+  src/camera/pfsplotresponse.in
+Copyright: (c) Rafal Mantiuk <mantiuk@users.sourceforge.net>
+License: GPL-2+
+
+Files: src/fileformat/pfsingdal.cpp
+Copyright: 2008, Martin Lambers <marlam@marlam.de>
+License: GPL-2+
+
+Files: src/filter/display_function.cpp
+  src/filter/display_function.h
+Copyright: (C) Rafal Mantiuk, <mantiuk@gmail.com>
+License: GPL-2+
+
+Files: src/hdrhtml/*
+Copyright: 2009, Rafal Mantiuk
+License: GPL-2+
+
+Files: src/matlab/compatibility.h
+  src/matlab/pfs_read_rgbe.cpp
+  src/matlab/pfs_transform_colorspace.cpp
+  src/matlab/pfsclose.cpp
+  src/matlab/pfsget.cpp
+  src/matlab/pfsopen.cpp
+  src/matlab/pfsput.cpp
+Copyright: 2003-2005, Rafal Mantiuk and Grzegorz Krawczyk
+License: GPL-2+
+
+Files: src/pfs/*
+Copyright: 2003-2013, Rafal Mantiuk and Grzegorz Krawczyk
+License: LGPL-2.1+
+
+Files: src/pfsglview/*
+Copyright: 2006, Radoslaw Mantiuk
+License: LGPL-2.1+
+
+Files: src/pfsglview/pfsglview.cpp
+Copyright: 2006-2012, Radoslaw Mantiuk, Oliver Barth
+License: LGPL-2.1+
+
+Files: src/tmo/*
+Copyright: 2003, 2004, 2007, Grzegorz Krawczyk
+License: GPL-2+
+
+Files: src/tmo/ferradans11/*
+Copyright: 2013, Sira Ferradans
+License: GPL-2+
+
+Files: src/tmo/ferradans11/tmo_ferradans11.cpp
+Copyright: 2013, 
+License: GPL-2+
+
+Files: src/tmo/mai11/*
+ src/tmo/mantiuk08/*
+ src/tmo/pfstmo/*
+Copyright: (C) Rafal Mantiuk, <mantiuk@gmail.com>
+License: GPL-2+
+
+Files: src/hdrhtml/hdrhtml_hdrlabs_templ/hdrhtml_assets/mootools-1.2.4.js
+ debian/missing-sources/mootools-1.2.4.js
+Copyright: (c) 2006-2009 Valerio Proietti, <http://mad4milk.net>
+License: MIT
+
+Files: src/hdrhtml/hdrhtml_hdrlabs_templ/hdrhtml_assets/mouse2touch.js
+Copyright: © Chi Wai Lau, © Scott Kyle
+License: MIT
+
+Files: doc/*
+Copyright: (C) 2003  Rafal Mantiuk and Grzegorz Krawczyk
+License: FDL1.2+-noinvar
+
+Files: cmake/FindEXIF.cmake
+Copyright: (c) 2006 Andreas Schneider <mail@cynapses.org>
+License: COPYING-CMAKE-SCRIPTS
+
+Files: cmake/FindFFTW.cmake
+Copyright: (C) 2008 Jed Brown
+License: CMAKE-SCRIPTS-2-Clause
+
+Files: cmake/FindGSL.cmake
+Copyright: Felix Woelk 07/2004 / Jan Woetzel^
+License: COPYING-CMAKE-SCRIPTS
+
+Files: cmake/FindOpenEXR.cmake
+Copyright: Copyright 2011 Blender Foundation.
+License: BSD-3-clause
+ Unspecified BSD styled license
+ .
+ Distributed under the OSI-approved BSD License (the "License");
+ see accompanying file Copyright.txt for details.
+ .
+ This software is distributed WITHOUT ANY WARRANTY; without even the
+ implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ See the License for more information.
+Comment: Copied from and based on FindTIFF.cmak, part of CMake.
+
+Files: AUTHORS ChangeLog cmake_config.h.in
+ cmake/FindMATLAB.cmake cmake/FindNETPBM.cmake cmake/FindTIFF.cmake
+ CMakeLists.txt COPYING Doxyfile README README.*
+Copyright: 2014-2015, Rafal Mantiuk
+Comment: copyright according to git history.
+License: GPL-2+
+
+Files: debian/*
+Copyright: (C) 2007-2012, Sebastian Harl <tokkee@debian.org>
+ (C) 2014-2015, Andreas Metzler <ametzler@debian.org>
+ The Debian packaging is licensed under the GPL, version 2 or later.
+License: GPL-2+
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; version 2 dated June, 1991, or (at
+ your option) any later version.
+ .
+ On Debian systems, the complete text of version 2 of the GNU General
+ Public License can be found in '/usr/share/common-licenses/GPL-2'.
+
+License: LGPL-2.1+
+ This program is free software; you can redistribute it and/or modify it
+ under the terms of the GNU Lesser General Public License as published by the
+ Free Software Foundation; version 2.1 of the License, or (at
+ your option) any later version.
+ .
+ On Debian systems, the complete text of version 2.1 of the GNU Lesser
+ General Public License can be found in `/usr/share/common-licenses/LGPL-2.1'.
+
+License: FDL1.2+-noinvar
+ Permission is granted to copy, distribute and/or modify this document
+ under the terms of the GNU Free Documentation License, Version 1.2 or
+ any later version published by the Free Software Foundation; with no
+ Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+ copy of the license is included in the section entitled "GNU Free
+ Documentation License".
+ .
+ On Debian systems, the complete text of version 1.2 of the GNU Free
+ Documentation License" can be found in `/usr/share/common-licenses/GFDL-1.2'.
+
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of this software and associated documentation files (the "Software"),
+ to deal in the Software without restriction, including without limitation
+ the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ IN THE SOFTWARE.
+
+License: COPYING-CMAKE-SCRIPTS
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ .
+ 1. Redistributions of source code must retain the copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. The name of the author may not be used to endorse or promote products 
+    derived from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License: CMAKE-SCRIPTS-2-Clause
+ All rights reserved.
+ .
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+ * Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+ .
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS
+ BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
