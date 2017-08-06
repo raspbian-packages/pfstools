@@ -51,7 +51,7 @@ DisplaySize::DisplaySize( float ppd, float vd_meters ) : ppd( ppd ), view_d(vd_m
 
 void DisplaySize::print( FILE *fh )
 {
-  fprintf( fh, "Display size paramaters:\n" );
+  fprintf( fh, "Display size parameters:\n" );
   fprintf( fh, "   pixels per visual degree = %g\n", (double)getPixPerDeg() );
   fprintf( fh, "   viewing distance = %g [meters]\n", (double)getViewD() );
 }
