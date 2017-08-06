@@ -1,4 +1,4 @@
-"Tranform between color spaces using pfs library.\n"
+"Transform between color spaces using pfs library.\n"
 "\n"
 "usage: [C1 C2 C2] = pfstranform_colorspace( inCSname, c1, c2, c3, outCSname );\n"
 "  inCSname - name of the input color space\n"
