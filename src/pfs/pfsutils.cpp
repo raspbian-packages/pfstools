@@ -288,7 +288,7 @@ void FrameFileIterator::printUsage( FILE *out, const char *progName )
     "<frame_pattern> can contain '%%d' to process a sequence of frames. To insert leading zeros use '%%0Nd', where n is a number of zeros. Any number of <frame_pattern>s can be given in a command line. They are processed one after another. Switches --frames and --skip-missing always refer to the last <frame_pattern>\n"
     "\nSwitches:\n"
     "  --frames <range>  : range of frame numbers to process. Range is given Octave range format, e.g. 10:2:100, to process every second frame, starting from 10 and stopping at 100\n"
-    "  --skip-missing    : skip up to 10 consequtive frames if there are missing\n",
+    "  --skip-missing    : skip up to 10 consecutive frames if there are missing\n",
     progName
     );
 }
