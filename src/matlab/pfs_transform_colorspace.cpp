@@ -1,5 +1,5 @@
 /**
- * @brief Tranform between color spaces using pfs library in MATLAB
+ * @brief Transform between color spaces using pfs library in MATLAB
  * 
  * This file is a part of PFSTOOLS package.
  * ---------------------------------------------------------------------- 

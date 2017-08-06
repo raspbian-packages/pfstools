@@ -1,4 +1,4 @@
-%PFS_TRANSFORM_COLORSPACE Tranform between color spaces using pfs library.
+%PFS_TRANSFORM_COLORSPACE Transform between color spaces using pfs library.
 %
 % [C1 C2 C2] = PFS_TRANSFORM_COLORSPACE( inCSname, c1, c2, c3, outCSname );
 % img_out = PFS_TRANSFORM_COLORSPACE( inCSname, img_in, outCSname );
