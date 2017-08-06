@@ -120,7 +120,7 @@ void PictureIO::setFrame(pfs::Frame *frame, const char *channel) {
 	pfsFrame->getXYZChannels( X, Y, Z );
 	if( X == NULL) {
 		if(verbose)
-			fprintf(stderr, "WARNING: No color channel avaible (PictureIO::setFrame())\n");
+			fprintf(stderr, "WARNING: No color channel available (PictureIO::setFrame())\n");
 		return;
 	}		
 	
@@ -543,7 +543,7 @@ int PictureIO::getRawData( int x, int y, float& XX, float& YY, float& ZZ) {
 	pfsFrame->getXYZChannels( X, Y, Z );	
 	if( X == NULL) {
 		if(verbose)
-			fprintf(stderr, "WARNING: No color channel avaible (PictureIO::getRawData())\n");
+			fprintf(stderr, "WARNING: No color channel available (PictureIO::getRawData())\n");
 		return 1;
 	}			
 	
