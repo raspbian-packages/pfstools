@@ -1,0 +1,11 @@
+cmake
+libopenexr-dev
+libmagick++-dev
+libnetpbm10-dev
+libtiff5-dev
+qt5-default
+freeglut3-dev
+libfftw3-dev
+libgsl-dev
+dcraw
+liboctave-dev

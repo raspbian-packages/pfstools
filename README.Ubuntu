@@ -1,0 +1,27 @@
+
+pfstools is in the first order supported on Ubuntu as this is the OS we use on everyday basis.
+
+The procedure below has been tested on Ubuntu 16.04 LTS
+
+To compile pfstools on Ubuntu follow the steps:
+
+1. Execute:
+
+sudo apt-get install `cat ubuntu-packages-deps | tr '\n' ' '`
+
+2. Install OpenCV with the "nonfree" modules
+
+sudo add-apt-repository --yes ppa:xqms/opencv-nonfree
+sudo apt-get update
+sudo apt-get install libopencv-dev libopencv-nonfree-dev
+
+3. If you want to install pfstools with Matlab support, follow the steps in README.Matlab
+
+4. From the pfstools directory, execute:
+
+mkdir build
+cd build
+cmake ../
+make
+sudo make install
+
