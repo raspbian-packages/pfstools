@@ -1,0 +1,136 @@
+From 069946618047a95641a850c31d2281f94dfe9a9f Mon Sep 17 00:00:00 2001
+From: Andreas Metzler <ametzler@bebt.de>
+Date: Sun, 6 Aug 2017 14:36:20 +0200
+Subject: [PATCH] Multiple typo fixes (suggested by lintian).
+Forwarded: https://sourceforge.net/p/pfstools/bugs/43/
+
+---
+ src/camera/pfshdrcalibrate.1                         | 2 +-
+ src/camera/pfsinme.1                                 | 2 +-
+ src/matlab/pfs_transform_colorspace.cpp              | 2 +-
+ src/matlab/pfs_transform_colorspace.m                | 2 +-
+ src/octave/help_files/pfstransform_colorspace_help.h | 2 +-
+ src/octave/pfstransform_colorspace.help              | 2 +-
+ src/pfs/pfsutils.cpp                                 | 2 +-
+ src/pfsglview/picture_io.cpp                         | 4 ++--
+ src/tmo/mantiuk08/display_size.cpp                   | 2 +-
+ 9 files changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/src/camera/pfshdrcalibrate.1 b/src/camera/pfshdrcalibrate.1
+index 4b08867..35dd170 100644
+--- a/src/camera/pfshdrcalibrate.1
++++ b/src/camera/pfshdrcalibrate.1
+@@ -44,7 +44,7 @@ Type of automatic self-calibration method used for recovery of the
+ response curve and/or type of method used for HDR merging. Accepted
+ types include: "robertson", "mitsunaga". "robertson" is the default
+ and recommended algorithm (see commends in the Bugs section
+-below). More infomation on the algorithms can be found in:
++below). More information on the algorithms can be found in:
+ .IP
+ M.A. Robertson,  S. Borman and R.L. Stevenson
+ .PD 0
+diff --git a/src/camera/pfsinme.1 b/src/camera/pfsinme.1
+index 1ad9350..4288426 100644
+--- a/src/camera/pfsinme.1
++++ b/src/camera/pfsinme.1
+@@ -13,7 +13,7 @@ recover a camera response or merge images into an HDR image.
+ All listed files must be the same type, that is mixing JPEG and RAW
+ images is not allowed. You can use wildcards.
+ 
+-This command is a convinience wrapper for \fIjpeg2hdrgen\fR,
++This command is a convenience wrapper for \fIjpeg2hdrgen\fR,
+ \fIdcraw2hdrgen\fR and \fIpfsinhdrgen\fR, which skips the step of
+ generating an \fIhdrgen\fR file
+ 
+diff --git a/src/matlab/pfs_transform_colorspace.cpp b/src/matlab/pfs_transform_colorspace.cpp
+index 832cc42..ae23c99 100644
+--- a/src/matlab/pfs_transform_colorspace.cpp
++++ b/src/matlab/pfs_transform_colorspace.cpp
+@@ -1,5 +1,5 @@
+ /**
+- * @brief Tranform between color spaces using pfs library in MATLAB
++ * @brief Transform between color spaces using pfs library in MATLAB
+  * 
+  * This file is a part of PFSTOOLS package.
+  * ---------------------------------------------------------------------- 
+diff --git a/src/matlab/pfs_transform_colorspace.m b/src/matlab/pfs_transform_colorspace.m
+index 071bb94..5af387e 100644
+--- a/src/matlab/pfs_transform_colorspace.m
++++ b/src/matlab/pfs_transform_colorspace.m
+@@ -1,4 +1,4 @@
+-%PFS_TRANSFORM_COLORSPACE Tranform between color spaces using pfs library.
++%PFS_TRANSFORM_COLORSPACE Transform between color spaces using pfs library.
+ %
+ % [C1 C2 C2] = PFS_TRANSFORM_COLORSPACE( inCSname, c1, c2, c3, outCSname );
+ % img_out = PFS_TRANSFORM_COLORSPACE( inCSname, img_in, outCSname );
+diff --git a/src/octave/help_files/pfstransform_colorspace_help.h b/src/octave/help_files/pfstransform_colorspace_help.h
+index 42285f1..4c94611 100644
+--- a/src/octave/help_files/pfstransform_colorspace_help.h
++++ b/src/octave/help_files/pfstransform_colorspace_help.h
+@@ -1,4 +1,4 @@
+-"Tranform between color spaces using pfs library.\n"
++"Transform between color spaces using pfs library.\n"
+ "\n"
+ "usage: [C1 C2 C2] = pfstranform_colorspace( inCSname, c1, c2, c3, outCSname );\n"
+ "  inCSname - name of the input color space\n"
+diff --git a/src/octave/pfstransform_colorspace.help b/src/octave/pfstransform_colorspace.help
+index a9554e0..838e03b 100644
+--- a/src/octave/pfstransform_colorspace.help
++++ b/src/octave/pfstransform_colorspace.help
+@@ -1,4 +1,4 @@
+-Tranform between color spaces using pfs library.
++Transform between color spaces using pfs library.
+ 
+ usage: [C1 C2 C2] = pfstranform_colorspace( inCSname, c1, c2, c3, outCSname );
+   inCSname - name of the input color space
+diff --git a/src/pfs/pfsutils.cpp b/src/pfs/pfsutils.cpp
+index 010cb64..5d9454a 100644
+--- a/src/pfs/pfsutils.cpp
++++ b/src/pfs/pfsutils.cpp
+@@ -257,7 +257,7 @@ void FrameFileIterator::printUsage( FILE *out, const char *progName )
+     "<frame_pattern> can contain '%%d' to process a sequence of frames. To insert leading zeros use '%%0Nd', where n is a number of zeros. Any number of <frame_pattern>s can be given in a command line. They are processed one after another. Switches --frames and --skip-missing always refer to the last <frame_pattern>\n"
+     "\nSwitches:\n"
+     "  --frames <range>  : range of frame numbers to process. Range is given Octave range format, e.g. 10:2:100, to process every second frame, starting from 10 and stopping at 100\n"
+-    "  --skip-missing    : skip up to 10 consequtive frames if there are missing\n",
++    "  --skip-missing    : skip up to 10 consecutive frames if there are missing\n",
+     progName
+     );
+ }
+diff --git a/src/pfsglview/picture_io.cpp b/src/pfsglview/picture_io.cpp
+index 044bd52..efa5361 100644
+--- a/src/pfsglview/picture_io.cpp
++++ b/src/pfsglview/picture_io.cpp
+@@ -120,7 +120,7 @@ void PictureIO::setFrame(pfs::Frame *frame, const char *channel) {
+ 	pfsFrame->getXYZChannels( X, Y, Z );
+ 	if( X == NULL) {
+ 		if(verbose)
+-			fprintf(stderr, "WARNING: No color channel avaible (PictureIO::setFrame())\n");
++			fprintf(stderr, "WARNING: No color channel available (PictureIO::setFrame())\n");
+ 		return;
+ 	}		
+ 	
+@@ -543,7 +543,7 @@ int PictureIO::getRawData( int x, int y, float& XX, float& YY, float& ZZ) {
+ 	pfsFrame->getXYZChannels( X, Y, Z );	
+ 	if( X == NULL) {
+ 		if(verbose)
+-			fprintf(stderr, "WARNING: No color channel avaible (PictureIO::getRawData())\n");
++			fprintf(stderr, "WARNING: No color channel available (PictureIO::getRawData())\n");
+ 		return 1;
+ 	}			
+ 	
+diff --git a/src/tmo/mantiuk08/display_size.cpp b/src/tmo/mantiuk08/display_size.cpp
+index f4ce5a2..c673951 100644
+--- a/src/tmo/mantiuk08/display_size.cpp
++++ b/src/tmo/mantiuk08/display_size.cpp
+@@ -51,7 +51,7 @@ DisplaySize::DisplaySize( float ppd, float vd_meters ) : ppd( ppd ), view_d(vd_m
+ 
+ void DisplaySize::print( FILE *fh )
+ {
+-  fprintf( fh, "Display size paramaters:\n" );
++  fprintf( fh, "Display size parameters:\n" );
+   fprintf( fh, "   pixels per visual degree = %g\n", (double)getPixPerDeg() );
+   fprintf( fh, "   viewing distance = %g [meters]\n", (double)getViewD() );
+ }
+-- 
+2.13.2
+

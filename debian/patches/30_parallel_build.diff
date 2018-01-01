@@ -1,0 +1,19 @@
+Description: Fix parallel build
+  Octave build requires libpfs, add CMake dependency.
+Author: Andreas Metzler <ametzler@debian.org>
+Origin: vendor
+# Bug: <url in upstream bugtracker>
+Forwarded: no
+Last-Update: 2018-01-01
+
+--- pfstools-2.1.0.orig/src/octave/CMakeLists.txt
++++ pfstools-2.1.0/src/octave/CMakeLists.txt
+@@ -33,7 +33,7 @@ foreach(SRC ${SRC_OCT})
+ endforeach(SRC)
+ 
+ foreach(SRC ${SRC_OCT})
+-	add_custom_target(${SRC}.mkoct ALL DEPENDS ${SRC}.oct)
++	add_custom_target(${SRC}.mkoct ALL DEPENDS ${SRC}.oct pfs)
+ endforeach(SRC)
+ 
+ #Installation
