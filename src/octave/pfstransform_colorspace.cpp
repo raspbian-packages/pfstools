@@ -86,9 +86,7 @@ DEFUN_DLD( pfstransform_colorspace, args, , helpString)
     }
     catch( pfs::Exception ex )
     {
-        char error_message[100];
-        sprintf( error_message, "%s: %s", SCRIPT_NAME, ex.getMessage() );
-        error( error_message );      
+        error( "%s: %s", SCRIPT_NAME, ex.getMessage() );
     }
     
     return retval;
