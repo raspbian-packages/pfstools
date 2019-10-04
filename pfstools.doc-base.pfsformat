@@ -1,0 +1,14 @@
+Document: pfs-format-spec
+Title: Specification of the PFS File Format version 1.5
+Abstract: This document contains a detailed specification of the pfs file
+ format. PFS file format is intended to store in particular
+ high-dynamic range images, but it is also flexible enough to store
+ additional data, like depth map or motion flow. To learn how PFS
+ format can be useful and why it is different from existing image
+ formats, see a list of Frequently Asked Questions of the PFS tools
+ package. Information in this section should be sufficient to implement
+ pfs compatible reader or writer.
+Section: Graphics
+
+Format: PDF
+Files: /usr/share/doc/pfstools/pfs_format_spec.pdf*

@@ -1,0 +1,61 @@
+#!/usr/bin/make -f
+# debian/rules for pfstools
+#
+# Written by Sebastian Harl <tokkee@debian.org>
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+MDIR = $(shell octave-config  --print LOCALFCNFILEDIR)
+export DEB_LDFLAGS_MAINT_APPEND := -Wl,--as-needed
+
+confflags = -DCMAKE_EXPORT_COMPILE_COMMANDS=true -DBUILD_SHARED_LIBS=ON
+# Matlab is not available in Debian.
+confflags += -DWITH_MATLAB=false
+
+# These libraries are not available / unusable in Debian.
+#confflags += --disable-jpeghdr --disable-gdal
+
+export DEB_CFLAGS_MAINT_APPEND := -Wall
+export DEB_CXXFLAGS_MAINT_APPEND := -Wall
+export DEB_BUILD_MAINT_OPTIONS := hardening=+bindnow
+
+override_dh_auto_configure:
+	dh_auto_configure --verbose -- \
+		$(confflags)
+
+override_dh_auto_build:
+	dh_auto_build -v
+	cd doc && pdflatex pfs_format_spec.tex && \
+		pdflatex pfs_format_spec.tex
+
+override_dh_auto_install:
+	dh_auto_install --verbose
+	chmod 644 debian/tmp/$(MDIR)/pfstools/*
+	# these binaries are not available
+	rm -vf debian/tmp/usr/share/man/man1/pfs*jpeghdr.1 \
+		debian/tmp/usr/share/man/man1/pfsingdal.1
+
+override_dh_install:
+	dh_install
+	# these files have been installed twice by dh_install
+	rm -vf debian/pfstools/usr/bin/pfs*view debian/pfstools/usr/bin/pfsv \
+		debian/pfstools/usr/share/man/man1/pfsv.1 \
+		debian/pfstools/usr/share/man/man1/pfs*view.1 \
+		debian/pfstools/usr/bin/pfstmo* \
+		debian/pfstools/usr/share/man/*/pfstmo*
+
+override_dh_strip:
+	# mkoctfile removes any symbol table and relocation information from the
+	# .oct files making them unusable for the -dbg package
+	dh_strip -poctave-pfstools --no-automatic-dbgsym
+	dh_strip --remaining-packages
+
+override_dh_dwz:
+	dh_dwz -X.oct
+
+override_dh_compress:
+	dh_compress -X.pdf
+
+%:
+	dh $@
