@@ -1,0 +1,91 @@
+From 74af29e59330a26a8b58b97930ef856e9ec3d0f2 Mon Sep 17 00:00:00 2001
+From: Orion Poplawski <orion@nwra.com>
+Date: Sun, 10 Mar 2019 20:05:40 -0600
+Subject: [PATCH] Fix format-security errors with Octave 5.1
+
+---
+ src/octave/pfsget.cpp                  | 4 +---
+ src/octave/pfsput.cpp                  | 4 +---
+ src/octave/pfsread.cpp                 | 4 +---
+ src/octave/pfstransform_colorspace.cpp | 4 +---
+ src/octave/pfswrite.cpp                | 4 +---
+ 5 files changed, 5 insertions(+), 15 deletions(-)
+
+diff --git a/src/octave/pfsget.cpp b/src/octave/pfsget.cpp
+index 2c0853b..29e5e2d 100644
+--- a/src/octave/pfsget.cpp
++++ b/src/octave/pfsget.cpp
+@@ -155,9 +155,7 @@ DEFUN_DLD( pfsget, args, , helpString)
+   }
+   catch( pfs::Exception ex )
+   {
+-    char error_message[100];
+-    sprintf( error_message, "%s: %s", SCRIPT_NAME, ex.getMessage() );
+-    error( error_message );      
++    error( "%s: %s", SCRIPT_NAME, ex.getMessage() );
+   }
+ //    if( fh != stdin ) fclose( fh );    
+     
+diff --git a/src/octave/pfsput.cpp b/src/octave/pfsput.cpp
+index 97fd94a..8c043c9 100644
+--- a/src/octave/pfsput.cpp
++++ b/src/octave/pfsput.cpp
+@@ -191,9 +191,7 @@ DEFUN_DLD( pfsput, args, , helpString)
+   }
+   catch( pfs::Exception ex )
+   {
+-    char error_message[100];
+-    sprintf( error_message, "%s: %s", SCRIPT_NAME, ex.getMessage() );
+-    error( error_message );      
++    error( "%s: %s", SCRIPT_NAME, ex.getMessage() );
+   }    
+     
+   return retval;
+diff --git a/src/octave/pfsread.cpp b/src/octave/pfsread.cpp
+index 137d1c6..f393136 100644
+--- a/src/octave/pfsread.cpp
++++ b/src/octave/pfsread.cpp
+@@ -105,9 +105,7 @@ DEFUN_DLD( pfsread, args, , helpString)
+     }
+     catch( pfs::Exception ex )
+     {
+-        char error_message[100];
+-        sprintf( error_message, "%s: %s", SCRIPT_NAME, ex.getMessage() );
+-        error( error_message );      
++        error( "%s: %s", SCRIPT_NAME, ex.getMessage() );
+     }
+ 
+     if( fh != stdin ) fclose( fh );    
+diff --git a/src/octave/pfstransform_colorspace.cpp b/src/octave/pfstransform_colorspace.cpp
+index 64b7e42..fd8413b 100644
+--- a/src/octave/pfstransform_colorspace.cpp
++++ b/src/octave/pfstransform_colorspace.cpp
+@@ -86,9 +86,7 @@ DEFUN_DLD( pfstransform_colorspace, args, , helpString)
+     }
+     catch( pfs::Exception ex )
+     {
+-        char error_message[100];
+-        sprintf( error_message, "%s: %s", SCRIPT_NAME, ex.getMessage() );
+-        error( error_message );      
++        error( "%s: %s", SCRIPT_NAME, ex.getMessage() );
+     }
+     
+     return retval;
+diff --git a/src/octave/pfswrite.cpp b/src/octave/pfswrite.cpp
+index 8475c3b..bc15a28 100644
+--- a/src/octave/pfswrite.cpp
++++ b/src/octave/pfswrite.cpp
+@@ -109,9 +109,7 @@ DEFUN_DLD( pfswrite, args, , helpString)
+     }
+     catch( pfs::Exception ex )
+     {
+-        char error_message[100];
+-        sprintf( error_message, "%s: %s", SCRIPT_NAME, ex.getMessage() );
+-        error( error_message );      
++        error( "%s: %s", SCRIPT_NAME, ex.getMessage() );
+     }
+ 
+     if( fh != stdout ) fclose( fh );
+-- 
+2.23.0
+
