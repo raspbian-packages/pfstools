@@ -46,7 +46,7 @@ DEFUN_DLD( pfsget, args, , helpString)
 	
   int nargin = args.length();
 
-  if( nargin != 1 || !args(0).is_map() )
+  if( nargin != 1 || !args(0).isstruct() )
   {
     error( SCRIPT_NAME ": Improper usage!");
     return retval;

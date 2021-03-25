@@ -1,3 +1,6 @@
+pfstools 2.1.1 <?>
+	* Fixed: Octave interface upgraded to Octave-6 (thanks to Michal)
+
 pfstools 2.1.0 <13.11.2017>
 	* Added: pfsinyuv/pfsoutyuv to handle uncompressed video .yuy
 	* Added: Support for PQ2020 and HLG2020 color spaces (in pfs*yuv)

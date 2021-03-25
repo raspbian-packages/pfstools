@@ -46,7 +46,7 @@ DEFUN_DLD( pfsput, args, , helpString)
 	
   int nargin = args.length();
 
-  if( nargin != 1 || !args(0).is_map() )
+  if( nargin != 1 || !args(0).isstruct() )
   {
     error( SCRIPT_NAME ": Improper usage!");
     return retval;
@@ -98,7 +98,7 @@ DEFUN_DLD( pfsput, args, , helpString)
   {
     octave_scalar_map::const_iterator itChannels = pfsStream.seek( "channels" );
     if( itChannels == pfsStream.end() ||
-      !pfsStream.contents( itChannels )(0).is_map() )
+      !pfsStream.contents( itChannels )(0).isstruct() )
     {
       error( SCRIPT_NAME ": 'channels' field missing in the structure or it has wrong type");
       return retval;
@@ -137,7 +137,7 @@ DEFUN_DLD( pfsput, args, , helpString)
     {
       octave_scalar_map::const_iterator itTags = pfsStream.seek( "tags" );
       if( itTags != pfsStream.end() ) {
-        if( !pfsStream.contents( itTags )(0).is_map() )
+        if( !pfsStream.contents( itTags )(0).isstruct() )
         {
           throw pfs::Exception( "'tags' field must be a structure" );  
         }
@@ -158,14 +158,14 @@ DEFUN_DLD( pfsput, args, , helpString)
     {
       octave_scalar_map::const_iterator itChTags = pfsStream.seek( "channelTags" );
       if( itChTags != pfsStream.end() ) {
-        if( !pfsStream.contents( itChTags )(0).is_map() )
+        if( !pfsStream.contents( itChTags )(0).isstruct() )
         {
           throw pfs::Exception( "'channelTags' field must be a structure" );  
         }
         octave_map tagChannels = pfsStream.contents( itChTags )(0).map_value();
         for( octave_scalar_map::iterator itCh = tagChannels.begin(); itCh != tagChannels.end(); itCh++ ) {
           std::string channelName = tagChannels.key(itCh);
-          if( !tagChannels.contents( itCh )(0).is_map() ) {
+          if( !tagChannels.contents( itCh )(0).isstruct() ) {
             throw pfs::Exception( "each channelTags file must be a structure" );  
           }
           pfs::Channel *pfsChannel = frame->getChannel( channelName.c_str() );

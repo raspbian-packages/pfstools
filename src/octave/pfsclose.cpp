@@ -47,7 +47,7 @@ DEFUN_DLD( pfsclose, args, , helpString )
 
   // Get arguments and check if they are legal
     
-  if( nargin != 1 || !args(0).is_map() )
+  if( nargin != 1 || !args(0).isstruct() )
   {
     error( SCRIPT_NAME ": Improper usage!");
     return retval;

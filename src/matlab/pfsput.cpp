@@ -148,14 +148,14 @@ void mexFunction(int nlhs, mxArray *plhs[],
     {
       Octave_map::const_iterator itChTags = pfsStream.seek( "channelTags" );
       if( itChTags != pfsStream.end() ) {
-        if( !pfsStream.contents( itChTags )(0).is_map() )
+        if( !pfsStream.contents( itChTags )(0).isstruct() )
         {
           throw pfs::Exception( "'channelTags' field must be a structure" );  
         }
         Octave_map tagChannels = pfsStream.contents( itChTags )(0).map_value();
         for( Octave_map::iterator itCh = tagChannels.begin(); itCh != tagChannels.end(); itCh++ ) {
           std::string channelName = tagChannels.key(itCh);
-          if( !tagChannels.contents( itCh )(0).is_map() ) {
+          if( !tagChannels.contents( itCh )(0).isstruct() ) {
             throw pfs::Exception( "each channelTags file must be a structure" );  
           }
           pfs::Channel *pfsChannel = frame->getChannel( channelName.c_str() );
