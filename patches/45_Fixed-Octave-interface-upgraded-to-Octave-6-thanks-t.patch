@@ -1,0 +1,140 @@
+From 5bc79a878fd528ccbd45b2ab4995e6c22c31f714 Mon Sep 17 00:00:00 2001
+From: Rafal Mantiuk <mantiuk@gmail.com>
+Date: Thu, 25 Mar 2021 18:16:14 +0000
+Subject: [PATCH] Fixed: Octave interface upgraded to Octave-6 (thanks to
+ Michal)
+
+---
+ ChangeLog               |  1 +
+ src/matlab/pfsput.cpp   |  4 ++--
+ src/octave/pfsclose.cpp |  2 +-
+ src/octave/pfsget.cpp   |  2 +-
+ src/octave/pfsput.cpp   | 10 +++++-----
+ 5 files changed, 10 insertions(+), 9 deletions(-)
+
+--- a/ChangeLog
++++ b/ChangeLog
+@@ -1,5 +1,8 @@
++pfstools 2.1.1 <?>
++	* Fixed: Octave interface upgraded to Octave-6 (thanks to Michal)
++
+ pfstools 2.1.0 <13.11.2017>
+ 	* Added: pfsinyuv/pfsoutyuv to handle uncompressed video .yuy
+ 	* Added: Support for PQ2020 and HLG2020 color spaces (in pfs*yuv)
+ 	* Added: pfsview now builds with Qt5 instead of Qt4
+ 	* Fixed: pfsglview crashing on OSX (thanks to Michael)
+--- a/src/matlab/pfsput.cpp
++++ b/src/matlab/pfsput.cpp
+@@ -146,18 +146,18 @@
+ 
+     // Copy channel tags
+     {
+       Octave_map::const_iterator itChTags = pfsStream.seek( "channelTags" );
+       if( itChTags != pfsStream.end() ) {
+-        if( !pfsStream.contents( itChTags )(0).is_map() )
++        if( !pfsStream.contents( itChTags )(0).isstruct() )
+         {
+           throw pfs::Exception( "'channelTags' field must be a structure" );  
+         }
+         Octave_map tagChannels = pfsStream.contents( itChTags )(0).map_value();
+         for( Octave_map::iterator itCh = tagChannels.begin(); itCh != tagChannels.end(); itCh++ ) {
+           std::string channelName = tagChannels.key(itCh);
+-          if( !tagChannels.contents( itCh )(0).is_map() ) {
++          if( !tagChannels.contents( itCh )(0).isstruct() ) {
+             throw pfs::Exception( "each channelTags file must be a structure" );  
+           }
+           pfs::Channel *pfsChannel = frame->getChannel( channelName.c_str() );
+           if( pfsChannel == NULL ) {
+             throw pfs::Exception( "can not set channel tag if channel is missing" );
+--- a/src/octave/pfsclose.cpp
++++ b/src/octave/pfsclose.cpp
+@@ -45,11 +45,11 @@
+ 
+   int nargin = args.length();
+ 
+   // Get arguments and check if they are legal
+     
+-  if( nargin != 1 || !args(0).is_map() )
++  if( nargin != 1 || !args(0).isstruct() )
+   {
+     error( SCRIPT_NAME ": Improper usage!");
+     return retval;
+   }
+ 
+--- a/src/octave/pfsget.cpp
++++ b/src/octave/pfsget.cpp
+@@ -44,11 +44,11 @@
+ {
+   octave_value_list retval;
+ 	
+   int nargin = args.length();
+ 
+-  if( nargin != 1 || !args(0).is_map() )
++  if( nargin != 1 || !args(0).isstruct() )
+   {
+     error( SCRIPT_NAME ": Improper usage!");
+     return retval;
+   }
+ 
+--- a/src/octave/pfsput.cpp
++++ b/src/octave/pfsput.cpp
+@@ -44,11 +44,11 @@
+ {
+   octave_value_list retval;
+ 	
+   int nargin = args.length();
+ 
+-  if( nargin != 1 || !args(0).is_map() )
++  if( nargin != 1 || !args(0).isstruct() )
+   {
+     error( SCRIPT_NAME ": Improper usage!");
+     return retval;
+   }
+   
+@@ -96,11 +96,11 @@
+   // Get channels
+   octave_map channels;
+   {
+     octave_scalar_map::const_iterator itChannels = pfsStream.seek( "channels" );
+     if( itChannels == pfsStream.end() ||
+-      !pfsStream.contents( itChannels )(0).is_map() )
++      !pfsStream.contents( itChannels )(0).isstruct() )
+     {
+       error( SCRIPT_NAME ": 'channels' field missing in the structure or it has wrong type");
+       return retval;
+     }
+     channels = pfsStream.contents( itChannels )(0).map_value();
+@@ -135,11 +135,11 @@
+ 
+     // Copy frame tags
+     {
+       octave_scalar_map::const_iterator itTags = pfsStream.seek( "tags" );
+       if( itTags != pfsStream.end() ) {
+-        if( !pfsStream.contents( itTags )(0).is_map() )
++        if( !pfsStream.contents( itTags )(0).isstruct() )
+         {
+           throw pfs::Exception( "'tags' field must be a structure" );  
+         }
+         
+         octave_map tags = pfsStream.contents( itTags )(0).map_value();
+@@ -156,18 +156,18 @@
+ 
+     // Copy channel tags
+     {
+       octave_scalar_map::const_iterator itChTags = pfsStream.seek( "channelTags" );
+       if( itChTags != pfsStream.end() ) {
+-        if( !pfsStream.contents( itChTags )(0).is_map() )
++        if( !pfsStream.contents( itChTags )(0).isstruct() )
+         {
+           throw pfs::Exception( "'channelTags' field must be a structure" );  
+         }
+         octave_map tagChannels = pfsStream.contents( itChTags )(0).map_value();
+         for( octave_scalar_map::iterator itCh = tagChannels.begin(); itCh != tagChannels.end(); itCh++ ) {
+           std::string channelName = tagChannels.key(itCh);
+-          if( !tagChannels.contents( itCh )(0).is_map() ) {
++          if( !tagChannels.contents( itCh )(0).isstruct() ) {
+             throw pfs::Exception( "each channelTags file must be a structure" );  
+           }
+           pfs::Channel *pfsChannel = frame->getChannel( channelName.c_str() );
+           if( pfsChannel == NULL ) {
+             throw pfs::Exception( "can not set channel tag if channel is missing" );
