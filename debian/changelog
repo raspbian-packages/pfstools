@@ -1,0 +1,338 @@
+pfstools (2.2.0-1) unstable; urgency=medium
+
+  * New upstream version.
+    + Drop superfluous patches
+      40_Fix-format-security-errors-with-Octave-5.1.patch
+      45_Fixed-Octave-interface-upgraded-to-Octave-6-thanks-t.patch
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 29 Aug 2021 18:19:07 +0200
+
+pfstools (2.1.0-6) unstable; urgency=medium
+
+  * Rename octave patches for proper sorting.
+  * 42_reorder-includes-imagemagick.patch by Peter Michael Green: Re-order
+    includes to work around bug 969128 in libmagick++-6.q16-dev.
+    Closes: #966904
+  * 45_Fixed-Octave-interface-upgraded-to-Octave-6-thanks-t.patch from
+    upstream GIT: Octave interface upgraded to Octave-6, fixing another FTBFS.
+   * [lintian] Use v4 watchfile standard.
+   * [lintian] Upgrade to debhelper 13 compat level.
+   * [lintian] Fix globbing order in debian/copyright.
+   * Add lintian override for html template files.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 28 Mar 2021 14:28:44 +0200
+
+pfstools (2.1.0-5) unstable; urgency=medium
+
+  * 40_Fix-format-security-errors-with-Octave-5.1.patch: Fix FTBFS with octave
+    5.1. Closes: #941742
+
+ -- Andreas Metzler <ametzler@debian.org>  Fri, 04 Oct 2019 19:20:38 +0200
+
+pfstools (2.1.0-4) unstable; urgency=medium
+
+  * Run "wrap-and-sort --max-line-length=72 --short-indent".
+  * [lintian] Point Vcs-* to salsa.
+  * [lintian] Drop trailing empty line in changelog.
+  * [lintian] Upgrade to dh compat 12. Suppress dh_dwz for octave-pfstools.
+  * [lintian] Migration to new dbgsym package is finished.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 13 Jul 2019 14:34:38 +0200
+
+pfstools (2.1.0-3) unstable; urgency=medium
+
+  * 30_parallel_build.diff: Octave build requires libpfs, add CMake
+    dependency.
+
+ -- Andreas Metzler <ametzler@debian.org>  Mon, 01 Jan 2018 17:47:47 +0100
+
+pfstools (2.1.0-2) unstable; urgency=medium
+
+  * Upload to unstable.
+  * Use debhelper v10 mode.
+  * Use automatic debug packages.
+
+ -- Andreas Metzler <ametzler@debian.org>  Mon, 01 Jan 2018 14:13:22 +0100
+
+pfstools (2.1.0-1) experimental; urgency=low
+
+  * [lintian] Delete trailing whitespace in changelog.
+  * New upstream version.
+    + Drop 30_Upgrade-to-Qt5.patch.
+    + Bump libpfs shlibs.
+  * Set Rules-Requires-Root: no
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 18 Nov 2017 12:55:15 +0100
+
+pfstools (2.0.6-4) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 18 Nov 2017 11:22:44 +0100
+
+pfstools (2.0.6-3) experimental; urgency=low
+
+  * Pull 30_Upgrade-to-Qt5.patch from upstream qt5-upgrade branch and
+    update b-d for qt5 (libqt4-dev -> qtbase5-dev). Closes: #875094
+  * Upgrade pfsglview/pfsview recommends on pfstools to a dependency since
+    pfstools is required for viewing EXR files.
+  * Sync priorities with override file.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 14 Oct 2017 15:16:36 +0200
+
+pfstools (2.0.6-2) unstable; urgency=low
+
+  * 25_Multiple-typo-fixes-suggested-by-lintian.patch Fix some typoes.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 06 Aug 2017 14:52:51 +0200
+
+pfstools (2.0.6-1) experimental; urgency=medium
+
+  * New upstream version.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 18 Mar 2017 14:24:07 +0100
+
+pfstools (2.0.5-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 19 Jun 2016 11:52:33 +0200
+
+pfstools (2.0.5-1) experimental; urgency=medium
+
+  * Move Vcs-* from git/http to https.
+  * New upstream version.
+    + Drop 21_fedora_maptype.patch, 22_octave_install_dirs.patch.
+    + Add 23_octavesystemdirs.diff to use octave system directories instead
+      of local, site-specific ones. Stop passing these as arguments to
+      dh_auto_configure in debian/rules.
+    + Stop trying to ship removed TODO.
+  * Build with hardening=+bindnow.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 04 Jun 2016 15:47:03 +0200
+
+pfstools (2.0.4-5) unstable; urgency=medium
+
+  [ Bas Couwenberg ]
+  * Update build dependencies for GSL 2, change libgsl0-dev to libgsl-dev.
+    Closes: #807221
+
+ -- Andreas Metzler <ametzler@debian.org>  Mon, 07 Dec 2015 07:59:39 +0100
+
+pfstools (2.0.4-4) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 01 Nov 2015 17:48:11 +0100
+
+pfstools (2.0.4-3) experimental; urgency=medium
+
+  * There is no use for a separate build-indep target in debian/rules if there
+    are no arch-indep packages to build.
+
+ -- Andreas Metzler <ametzler@debian.org>  Thu, 29 Oct 2015 19:31:04 +0100
+
+pfstools (2.0.4-2) experimental; urgency=medium
+
+  * Disable parallel build to fix FTBFS.
+
+ -- Andreas Metzler <ametzler@debian.org>  Wed, 28 Oct 2015 19:24:18 +0100
+
+pfstools (2.0.4-1) experimental; urgency=medium
+
+  * Watchfile matches on .tgz in addition to tar.gz.
+  * Switch to dh, and debhelper compat level 9.
+  * Drop outdated and superfluous README.source.
+  * New upstream version.
+  * Updated upstream build-system:
+    + Update build-depends and rules for cmake.
+    + Manually build LaTeX docs, ignored by upstream build-system.
+    + cmake build only supports building either shared or static lib, instead
+      of both, build shared one and update libpfs-dev.install. accordingly.
+      la-file is gone, too.
+    + The cmake build-system does not easily support multi-arch, revert
+      *.install again.
+  * Drop Wformat-security.dpatch, 20_stop_overriding_CXXFLAGS.diff and
+    octave-4.0.diff.
+  * Add 21_fedora_maptype.patch from Fedora to fix octave related FTBFS.
+  * Add 22_octave_install_dirs.patch, to allow specifying separate target
+    directories for octave dynamic-link libraries and octave .m script files.
+    Use these variables in debian/rules.
+  * Upstream soname-bump: libpfs-1.2-0 -> libpfs2, packages renamed.
+  * pfstmo has been integrated into pfstools, take over binary package and add
+    b-d on libgsl0-dev (needed for pfstmo_mantiuk08).
+  * Register pfs_format_spec.pdf with doc-base.
+  * Add debian/missing-sources/mootools-1.2.4.js.
+  * Link with -Wl,--as-needed.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 24 Oct 2015 13:12:42 +0200
+
+pfstools (1.8.5-2.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * d/p/octave-4.0.diff: new patch, fixes FTBFS against Octave 4.0.
+    (Closes: #792890)
+
+ -- Sébastien Villemot <sebastien@debian.org>  Mon, 20 Jul 2015 20:17:58 +0200
+
+pfstools (1.8.5-2) unstable; urgency=medium
+
+  [ Jackson Doak ]
+  * debian/control:
+    - Use canonical git urls
+    - Change libtiff4-dev to libtiff-dev. Closes: #736037, #681824
+    - Drop alternate build-depend on libmagick++9-dev, it no longer exists
+
+  [ Andreas Metzler ]
+  * Upload to unstable to prevent removal from testing.
+  * Add myself to uploaders.
+  * Use dh-autoreconf instead of autotools-dev to also fix FTBFS on ppc64el by
+    getting new libtool macros (still updates config.{sub,guess}). (Thanks,
+    Logan Rosen) Closes: #737668
+  * Use Debian's default LDFLAGS.
+  * 20_stop_overriding_CXXFLAGS.diff: Stop
+    ./configure --enable-debug/--disable-debug from changing CXXFLAGS (either
+    disable all optimisation and use -g, or disable -g and set -O3) apart from
+    prepending -g for --enable-debug.  (Fixes lintian's
+    debug-file-with-no-debug-symbols warning.)
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 02 Aug 2014 18:45:56 +0200
+
+pfstools (1.8.5-1) unstable; urgency=low
+
+  * debian/rules:
+    - Split 'build' target into 'build-arch' and 'build-indep'.
+    - Use dpkg-buildflags to get build flags.
+  * debian/control:
+    - Updated standards-version to 3.9.3.
+  * debian/copyright:
+    - Updated for upstream version 1.8.5.
+  * debian/patches/:
+    - Added Wformat-security.dpatch, fixing some issues identified by
+      -Wformat-security.
+
+ -- Sebastian Harl <tokkee@debian.org>  Sat, 30 Jun 2012 14:48:49 +0200
+
+pfstools (1.8.5-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+
+  [ Sébastien Villemot ]
+  * New upstream release, build-depend on Qt4 instead of Qt3 (Closes: #604368)
+  * gcc-4.4.dpatch: remove patch, applied upstream
+  * Convert to format 3.0 (quilt) and drop dpatch, because otherwise Lintian
+    produces an error (dpatch is obsolete)
+
+  [ Rafael Laboissiere ]
+  * debian/control:
+    - Build-depend on liboctave-dev, such that the package builds with
+      Octave 3.6 (Closes: #666959)
+    - Depend simply on octave, do not use the obsolete ${octave:Depends}
+      substitution variable anymore
+  * debian/rules:
+    - Use directly the octave-config script in order to get the
+      installation path for the *.oct and *.m files
+    - Do not invoke the obsolete script octave-depends
+  * debian/octave-pfstools.install: Adjust for the multiarch path, which
+    contains the architecture triplet now
+
+ -- Sébastien Villemot <sebastien.villemot@ens.fr>  Sun, 03 Jun 2012 11:00:46 +0200
+
+pfstools (1.8.1-2) unstable; urgency=low
+
+  [ Thomas Weber ]
+  * Switch to octave3.2 (Closes: #567875).
+
+  [ Sebastian Harl ]
+  * debian/control:
+    - Updated standards-version to 3.8.4 -- no changes.
+    - Let libpfs-dev depend on libpfs (= ${binary:Version}) (rather than a
+      weak dependency on >= ${source:Version}).
+    - Let all packages depend on ${misc:Depends}.
+  * Added debian/README.source:
+    - The file includes a pointer to /usr/share/doc/dpatch/README.source.gz.
+
+ -- Sebastian Harl <tokkee@debian.org>  Mon, 15 Mar 2010 22:50:05 +0100
+
+pfstools (1.8.1-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Add patch gcc-4.4.dpatch, to fix FTBFS w/ gcc 4.4, rationale; patch
+    from Ubuntu (with some extra comments/rationale by me).
+    (Closes: #554494)
+
+ -- Stefano Zacchiroli <zack@debian.org>  Sun, 20 Dec 2009 15:12:00 +0100
+
+pfstools (1.8.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches:
+    - Removed dcraw-m.dpatch - merged upstream.
+    - Removed octave3.0.dpatch - merged upstream.
+    - Added octave-nargin.dpatch - this patch lets octave scripts use the
+      variable nargin instead of length(argv); the latter does not work
+      reliably when no command line arguments have been specified.
+    - Added octave-signal.dpatch - this patch lets pfsstat bail out with an
+      error message if gausswin() is not available, telling the user to
+      install octave-signal.
+  * Removed debian/pfsglview.1 - included upstream.
+  * debian/control:
+    - Added libmagick++-dev as an option to the libmagick++9-dev build
+      dependency.
+    - Updated Standards-Version to 3.8.1 - no changes.
+    - Changed section of package 'pfstools-dbg' to the newly added section
+      'debug'.
+    - Build-depend on texlive-latex-base rather than the obsolete tetex-bin.
+    - Updated homepage.
+    - Let pfstools recommend octave-signal which is required by pfsstat.
+  * debian/pfsglview.install:
+    - Install the pfsglview.1 manpage.
+  * debian/pfstools.install:
+    - Install usr/share/pfstools/hdrhtml_*.
+  * debian/rules:
+    - Use dh_install's --fail-missing instead of --list-missing.
+    - Explicitly disable all features that are not available to ensure
+      consistent builds - currently this is matlab, jpeghdr and gdal.
+    - Pass CXXFLAGS as arguments to configure instead of setting them in the
+      environment - this is the recommended way.
+  * debian/control, debian/rules:
+    - Use ${octave:Depends} and octave3.0-depends instead of explicitly
+      depending on octave3.0.
+
+ -- Sebastian Harl <tokkee@debian.org>  Mon, 08 Jun 2009 20:41:22 +0200
+
+pfstools (1.6.4-2) unstable; urgency=low
+
+  * Switched to octave3.0, thanks to Thomas Weber for the patches
+    (Closes: #458131).
+    - Added octave3.0.dpatch including required changes for octave 3.0.
+  * Added dcraw-m.dpatch which fixes the usage of dcraw's "-m" command line
+    option (Closes: #464724).
+
+ -- Sebastian Harl <sh@tokkee.org>  Mon, 31 Mar 2008 16:38:54 +0200
+
+pfstools (1.6.4-1) unstable; urgency=low
+
+  * New upstream release.
+    - Added missing includes required by gcc-4.3 (Closes: #455648).
+  * Downgraded pfstool's requirement on octave{,pfstools} to a recommendation
+    (Closes: #445909).
+  * Added new binary packages for pfsglview and pfsview to prevent users from
+    having to install OpenGL/GLUT and Qt.
+  * Removed a bashism from debian/rules (Closes: #456508).
+  * Renamed "XS-Vcs-*" fields to Vcs-* and moved "Homepage" field from the
+    package description to the source stanza:
+    - Added versioned build dependency on dpkg-dev (>= 1.14.6).
+  * Updated to standards version 3.7.3 (no changes).
+  * Changed maintainer to pkg-phototools team:
+    - Moved myself to uploaders.
+  * Added a watch file, thanks to Cyril Brulebois.
+
+ -- Sebastian Harl <sh@tokkee.org>  Sun, 27 Jan 2008 17:33:12 +0100
+
+pfstools (1.6.2-1) unstable; urgency=low
+
+  * Initial release (Closes: #399503, #410669).
+  * Added pfsglview.1 from upstream CVS.
+
+ -- Sebastian Harl <sh@tokkee.org>  Fri, 10 Aug 2007 15:00:06 +0200
