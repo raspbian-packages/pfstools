@@ -1,0 +1,21 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## octave-signal.dpatch by Sebastian Harl <tokkee@debian.org>
+##
+## DP: pfsstat: Bail out with an error if octave-signal is not available.
+
+@DPATCH@
+
+--- a/src/octave/pfsstat
++++ b/src/octave/pfsstat
+@@ -33,6 +33,11 @@
+   error( "Expecting no parameters" ); 
+ endif
+ 
++if( 2 != exist( 'gausswin' ) )
++  error( "%s requires the 'signal' package - please install octave-signal\n", \
++      program_name () );
++endif
++
+ firstFrame = true;
+ while( true )
+   pin = pfsget( pin );
