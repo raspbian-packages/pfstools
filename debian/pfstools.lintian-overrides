@@ -1,0 +1,7 @@
+# templates, not documentation
+pfstools: package-contains-documentation-outside-usr-share-doc usr/share/pfstools/hdrhtml_default_templ/hdrhtml_image_templ.html
+pfstools: package-contains-documentation-outside-usr-share-doc usr/share/pfstools/hdrhtml_default_templ/hdrhtml_page_templ.html
+pfstools: package-contains-documentation-outside-usr-share-doc usr/share/pfstools/hdrhtml_hdrlabs_templ/hdrhtml_image_templ.html
+pfstools: package-contains-documentation-outside-usr-share-doc usr/share/pfstools/hdrhtml_hdrlabs_templ/hdrhtml_image_templ_slider-above.html
+pfstools: package-contains-documentation-outside-usr-share-doc usr/share/pfstools/hdrhtml_hdrlabs_templ/hdrhtml_page_templ.html
+pfstools: package-contains-documentation-outside-usr-share-doc usr/share/pfstools/hdrhtml_hdrlabs_templ/hdrhtml_page_templ_short.html
