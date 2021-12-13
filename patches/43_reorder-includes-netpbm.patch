@@ -1,0 +1,24 @@
+Description:  Reorder includes to stop macro in pm.h causing breakage in c++ system headers
+Author: Peter Michael Green <plugwash@raspbian.org>
+Bug-Debian: https://bugs.debian.org/998498
+Last-Update: 2021-12-13
+
+--- pfstools-2.2.0.orig/src/fileformat/ppmio.cpp
++++ pfstools-2.2.0/src/fileformat/ppmio.cpp
+@@ -27,13 +27,13 @@
+ 
+ #include "ppmio.h"
+ 
++#include <math.h>
++#include <assert.h>
++
+ extern "C" {
+  #include <ppm.h>
+ }
+ 
+-#include <math.h>
+-#include <assert.h>
+-
+ struct PPMData
+ {
+     pixval maxPV;
