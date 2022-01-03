@@ -1,3 +1,11 @@
+pfstools 2.2.1 <?>
+	* Fixed: linkage issues with octave interface
+
+
+
+
+
+
 pfstools 2.2.0 <12.08.2021>
 	* Added: v210 format in pfsinyuv
 	* Fixed: memleak in pfssize
