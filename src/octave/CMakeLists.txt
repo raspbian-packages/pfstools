@@ -26,8 +26,8 @@ foreach(SRC ${SRC_OCT})
 	OUTPUT ${OCT_NAME}.oct
 	COMMAND ${MKOCTFILE} "${CMAKE_CURRENT_SOURCE_DIR}/${OCT_NAME}.cpp"
 	ARGS -I${HEADERS} -I${CMAKE_CURRENT_SOURCE_DIR}/help_files
-	-L${PROJECT_BINARY_DIR}/src/pfs -lpfs
-	DEPENDS ${OCT_NAME}.cpp
+	-L$<TARGET_LINKER_FILE_DIR:pfs> -lpfs
+	DEPENDS ${OCT_NAME}.cpp pfs
 	COMMENT "Generating ${OCT_NAME}.oct"
 	VERBATIM)
 endforeach(SRC)
