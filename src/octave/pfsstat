@@ -31,7 +31,7 @@ pin = pfsopen( "stdin" );
 
 #fprintf( stderr, "l = %d\n", length( argv ) );
 
-if( length( argv ) != 0 )
+if( nargin != 0 )
   error( "Expecting no parameters" ); 
 endif
 
