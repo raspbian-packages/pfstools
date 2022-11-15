@@ -27,12 +27,12 @@
 
 #include "ppmio.h"
 
+#include <math.h>
+#include <assert.h>
+
 extern "C" {
  #include <ppm.h>
 }
-
-#include <math.h>
-#include <assert.h>
 
 struct PPMData
 {
