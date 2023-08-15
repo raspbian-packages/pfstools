@@ -12,7 +12,7 @@ endif()
 add_executable(pfsglview pfsglview.cpp picture_io.cpp module.cpp m_histogram.cpp m_status.cpp m_on_screen_display.cpp)
 
 # TODO: Use ${GLUT_LIBRARY} instead.
-target_link_libraries(pfsglview ${OPENGL_LIBRARIES} ${GLUT_glut_LIBRARY} pfs)
+target_link_libraries(pfsglview ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} pfs)
 
 install (TARGETS pfsglview DESTINATION bin)
 install (FILES pfsglview.1 DESTINATION ${MAN_DIR})
