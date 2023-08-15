@@ -63,7 +63,7 @@ endif( HAS_BRANCH_PREDICTION )
 # ======== Find bash =======
 
 # TODO: What if the check fails
-find_program (BASH_EXECUTABLE bash)
+find_program (BASH_EXECUTABLE bash PATHS /bin /usr/bin NO_DEFAULT_PATH)
 message( "Using bash: ${BASH_EXECUTABLE}" )
 
 # ======== Find perl =======
