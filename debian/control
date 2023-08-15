@@ -1,0 +1,145 @@
+Source: pfstools
+Section: graphics
+Priority: optional
+Maintainer: Debian PhotoTools Maintainers <pkg-phototools-devel@lists.alioth.debian.org>
+Uploaders:
+ Sebastian Harl <tokkee@debian.org>,
+ Andreas Metzler <ametzler@debian.org>,
+Build-Depends:
+ cmake,
+ debhelper-compat (=13),
+ freeglut3-dev,
+ gfortran,
+ libgsl-dev,
+ libmagick++-dev,
+ libnetpbm11-dev | libnetpbm-dev,
+ libopenexr-dev,
+ libtiff-dev,
+ octave-dev,
+ qtbase5-dev,
+ texlive-latex-base,
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+Homepage: http://pfstools.sourceforge.net/
+Vcs-Browser: https://salsa.debian.org/debian-phototools-team/pfstools
+Vcs-Git: https://salsa.debian.org/debian-phototools-team/pfstools.git
+
+Package: pfstools
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${perl:Depends},
+ ${shlibs:Depends},
+Recommends:
+ octave,
+ octave-pfstools,
+ octave-signal,
+ pfsglview | pfsview,
+ pfstmo,
+ python3,
+Suggests:
+ dcraw,
+ exrtools,
+ imagemagick,
+Description: command line HDR manipulation programs
+ pfstools is a set of command line (and two GUI) programs for reading,
+ writing, manipulating and viewing high-dynamic range (HDR) images and video
+ frames. All programs in this package exchange data using a simple generic
+ file format (pfs) for HDR data. It is an attempt to integrate existing file
+ formats by providing a simple data format that can be used to exchange data
+ between applications.
+ .
+ The concept of pfstools is similar to netpbm for low-dynamic range images.
+
+Package: pfsglview
+Architecture: any
+Depends:
+ pfstools (= ${binary:Version}),
+ ${misc:Depends},
+ ${perl:Depends},
+ ${shlibs:Depends},
+Description: command line HDR manipulation programs (OpenGL/GLUT viewer)
+ PFS is a high-dynamic range (HDR) image format. It is an attempt to integrate
+ existing file formats by providing a simple data format that can be used to
+ exchange data between applications.
+ .
+ This package contains a viewer implemented in OpenGL/GLUT.
+
+Package: pfsview
+Architecture: any
+Depends:
+ pfstools (= ${binary:Version}),
+ ${misc:Depends},
+ ${perl:Depends},
+ ${shlibs:Depends},
+Description: command line HDR manipulation programs (Qt viewer)
+ PFS is a high-dynamic range (HDR) image format. It is an attempt to integrate
+ existing file formats by providing a simple data format that can be used to
+ exchange data between applications.
+ .
+ This package contains a viewer implemented in Qt.
+
+Package: libpfs-dev
+Section: libdevel
+Architecture: any
+Depends:
+ libpfs2 (= ${binary:Version}),
+ ${misc:Depends},
+ ${perl:Depends},
+Description: C++ library to read and write pfs files (development files)
+ PFS is a high-dynamic range (HDR) image format. It is an attempt to integrate
+ existing file formats by providing a simple data format that can be used to
+ exchange data between applications. This library can be used to write custom
+ applications that can integrate with the existing pfstools programs.
+ .
+ This package contains the header files and the static library.
+
+Package: libpfs2
+Section: libs
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${perl:Depends},
+ ${shlibs:Depends},
+Description: C++ library to read and write pfs files
+ PFS is a high-dynamic range (HDR) image format. It is an attempt to integrate
+ existing file formats by providing a simple data format that can be used to
+ exchange data between applications. This library can be used to write custom
+ applications that can integrate with the existing pfstools programs.
+ .
+ This package contains the shared library.
+
+Package: octave-pfstools
+Section: math
+Architecture: any
+Depends:
+ octave,
+ ${misc:Depends},
+ ${perl:Depends},
+ ${shlibs:Depends},
+Description: octave bindings for pfstools
+ PFS is a high-dynamic range (HDR) image format. It is an attempt to integrate
+ existing file formats by providing a simple data format that can be used to
+ exchange data between applications.
+ .
+ This package contains octave bindings to read and write PFS files.
+
+Package: pfstmo
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${perl:Depends},
+ ${shlibs:Depends},
+Recommends:
+ pfstools,
+Description: set of tone mapping operators
+ This package contains a set of state-of-the-art tone mapping operators. Tone
+ mapping is a technique used to approximately map the appearance of
+ high-dynamic range (HDR) images to media with more limited dynamic range. The
+ operators are suitable for processing of both static images and animations.
+ .
+ The operators are embedded in a flexible framework (pfstools) which provides
+ a unified input/output mechanism and a modular architecture for the filtering
+ of the image data. Various file formats for static images and video are
+ transparently supported and the High Dynamic Range data are processed
+ modularly through a Unix piping mechanism.
