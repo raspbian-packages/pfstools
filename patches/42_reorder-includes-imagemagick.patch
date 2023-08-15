@@ -1,0 +1,47 @@
+Description:  Re-order includes to work around bug 969128 in libmagick++-6.q16-dev
+ libmagick++ currently includes assert.h inside a namespace which breaks other
+ code that tries to use assert.h, re-order the includes to ensure that
+ assert.h gets included outside the namespace.
+ This only breaks on Debian due to a glibc patch
+ https://salsa.debian.org/glibc-team/glibc/-/blob/sid/debian/patches/any/local-asserth-decls.diff
+Author: Peter Michael Green <plugwash@raspbian.org>
+Bug-Debian: https://bugs.debian.org/966904
+Origin: https://debdiffs.raspbian.org/main/p/pfstools
+
+Index: pfstools-2.1.0/src/fileformat/pfsinimgmagick.cpp
+===================================================================
+--- pfstools-2.1.0.orig/src/fileformat/pfsinimgmagick.cpp
++++ pfstools-2.1.0/src/fileformat/pfsinimgmagick.cpp
+@@ -26,12 +26,12 @@
+  */
+ 
+ #include <config.h>
++#include <pfs.h>
+ #include <Magick++.h>
+ 
+ #include <iostream>
+ 
+ #include <getopt.h>
+-#include <pfs.h>
+ 
+ #define PROG_NAME "pfsinimgmagick"
+ 
+Index: pfstools-2.1.0/src/fileformat/pfsoutimgmagick.cpp
+===================================================================
+--- pfstools-2.1.0.orig/src/fileformat/pfsoutimgmagick.cpp
++++ pfstools-2.1.0/src/fileformat/pfsoutimgmagick.cpp
+@@ -28,13 +28,12 @@
+ 
+ #include <config.h>
+ 
+-
++#include <pfs.h>
+ #include <Magick++.h>
+ 
+ #include <iostream>
+ 
+ #include <getopt.h>
+-#include <pfs.h>
+ 
+ #define PROG_NAME "pfsoutimgmagick"
+ 
