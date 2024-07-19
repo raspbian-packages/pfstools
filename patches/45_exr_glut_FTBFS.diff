@@ -1,0 +1,37 @@
+Description: Update cmake files for newer FindGLUT and FindOpenEXR
+Author: Andreas Metzler <ametzler@debian.org>
+Bug-Debian: https://bugs.debian.org/1023997
+Origin: vendor
+Forwarded: https://sourceforge.net/p/pfstools/bugs/54/
+Last-Update: 2022-11-15
+
+--- a/src/pfsglview/CMakeLists.txt
++++ b/src/pfsglview/CMakeLists.txt
+@@ -10,11 +10,11 @@
+ endif()
+ 
+ add_executable(pfsglview pfsglview.cpp picture_io.cpp module.cpp m_histogram.cpp m_status.cpp m_on_screen_display.cpp)
+ 
+ # TODO: Use ${GLUT_LIBRARY} instead.
+-target_link_libraries(pfsglview ${OPENGL_LIBRARIES} ${GLUT_glut_LIBRARY} pfs)
++target_link_libraries(pfsglview ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} pfs)
+ 
+ install (TARGETS pfsglview DESTINATION bin)
+ install (FILES pfsglview.1 DESTINATION ${MAN_DIR})
+ 
+ 
+--- a/src/fileformat/CMakeLists.txt
++++ b/src/fileformat/CMakeLists.txt
+@@ -66,11 +66,11 @@
+ target_link_libraries(pfsoutpfm pfs)
+ install (TARGETS pfsoutpfm DESTINATION bin)
+ install (FILES pfsoutpfm.1 DESTINATION ${MAN_DIR})
+ 
+ if( OPENEXR_FOUND )
+-    include_directories("${OPENEXR_INCLUDE_DIR}")
++    include_directories("${OPENEXR_INCLUDE_DIRS}")
+ 
+     add_executable(pfsinexr pfsinexr.cpp "${GETOPT_OBJECT}")
+     target_link_libraries(pfsinexr pfs ${OPENEXR_LIBRARIES})
+     install (TARGETS pfsinexr DESTINATION bin)
+     install (FILES pfsinexr.1 DESTINATION ${MAN_DIR})
