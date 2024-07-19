@@ -33,7 +33,7 @@ foreach(SRC ${SRC_OCT})
 endforeach(SRC)
 
 foreach(SRC ${SRC_OCT})
-	add_custom_target(${SRC}.mkoct ALL DEPENDS ${SRC}.oct)
+	add_custom_target(${SRC}.mkoct ALL DEPENDS ${SRC}.oct pfs)
 endforeach(SRC)
 
 #Installation
