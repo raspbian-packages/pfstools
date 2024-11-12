@@ -68,7 +68,7 @@ install (TARGETS pfsoutpfm DESTINATION bin)
 install (FILES pfsoutpfm.1 DESTINATION ${MAN_DIR})
 
 if( OPENEXR_FOUND )
-    include_directories("${OPENEXR_INCLUDE_DIR}")
+    include_directories("${OPENEXR_INCLUDE_DIRS}")
 
     add_executable(pfsinexr pfsinexr.cpp "${GETOPT_OBJECT}")
     target_link_libraries(pfsinexr pfs ${OPENEXR_LIBRARIES})
