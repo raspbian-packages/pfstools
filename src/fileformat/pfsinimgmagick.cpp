@@ -26,12 +26,12 @@
  */
 
 #include <config.h>
+#include <pfs.h>
 #include <Magick++.h>
 
 #include <iostream>
 
 #include <getopt.h>
-#include <pfs.h>
 
 #define PROG_NAME "pfsinimgmagick"
 
