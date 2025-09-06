@@ -1,0 +1,43 @@
+From 9521acb7b2e720a040239882e059d4c64195336d Mon Sep 17 00:00:00 2001
+From: Rafal Mantiuk <mantiuk@gmail.com>
+Date: Mon, 3 Jan 2022 13:25:04 +0000
+Subject: [PATCH] Fixed: linkage issues with octave interface
+
+---
+ ChangeLog                 | 1 +
+ src/octave/CMakeLists.txt | 4 ++--
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+--- a/ChangeLog
++++ b/ChangeLog
+@@ -1,5 +1,13 @@
++pfstools 2.2.1 <?>
++	* Fixed: linkage issues with octave interface
++
++
++
++
++
++
+ pfstools 2.2.0 <12.08.2021>
+ 	* Added: v210 format in pfsinyuv
+ 	* Fixed: memleak in pfssize
+ 	* Fixed: Fix format-security errors with Octave 5.1 (thanks to Orion Poplawski)
+ 	* Added: pfs_automerge
+--- a/src/octave/CMakeLists.txt
++++ b/src/octave/CMakeLists.txt
+@@ -24,12 +24,12 @@ foreach(SRC ${SRC_OCT})
+   get_filename_component(OCT_NAME ${SRC} NAME)
+   add_custom_command(
+ 	OUTPUT ${OCT_NAME}.oct
+ 	COMMAND ${MKOCTFILE} "${CMAKE_CURRENT_SOURCE_DIR}/${OCT_NAME}.cpp"
+ 	ARGS -I${HEADERS} -I${CMAKE_CURRENT_SOURCE_DIR}/help_files
+-	-L${PROJECT_BINARY_DIR}/src/pfs -lpfs
+-	DEPENDS ${OCT_NAME}.cpp
++	-L$<TARGET_LINKER_FILE_DIR:pfs> -lpfs
++	DEPENDS ${OCT_NAME}.cpp pfs
+ 	COMMENT "Generating ${OCT_NAME}.oct"
+ 	VERBATIM)
+ endforeach(SRC)
+ 
+ foreach(SRC ${SRC_OCT})
