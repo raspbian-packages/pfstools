@@ -1,0 +1,43 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## octave-nargin.dpatch by Sebastian Harl <tokkee@debian.org>
+##
+## DP: Use nargin instead of length(argv).
+## DP:
+## DP: length(argv) does not work reliably when no arguments are passed to
+## DP: some octave script.
+
+@DPATCH@
+
+--- a/src/octave/pfsoctavelum
++++ b/src/octave/pfsoctavelum
+@@ -29,7 +29,7 @@
+ 
+ #fprintf( stderr, "l = %d\n", length( argv ) );
+ 
+-if( length( argv ) != 1 )
++if( nargin != 1 )
+   error( "Expecting exactly one parameter with octave code to be execuded" ); 
+ endif
+ 
+--- a/src/octave/pfsoctavergb
++++ b/src/octave/pfsoctavergb
+@@ -29,7 +29,7 @@
+ 
+ #fprintf( stderr, "l = %d\n", length( argv ) );
+ 
+-if( length( argv ) != 1 )
++if( nargin != 1 )
+   error( "Expecting exactly one parameter with octave code to be execuded" ); 
+ endif
+ 
+--- a/src/octave/pfsstat
++++ b/src/octave/pfsstat
+@@ -29,7 +29,7 @@
+ 
+ #fprintf( stderr, "l = %d\n", length( argv ) );
+ 
+-if( length( argv ) != 0 )
++if( nargin != 0 )
+   error( "Expecting no parameters" ); 
+ endif
+ 
