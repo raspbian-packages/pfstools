@@ -1,0 +1,20 @@
+Description: Octave: Use system directories instead of local, site-specific
+ ones.
+Author: Andreas Metzler <ametzler@debian.org>
+Origin: vendor
+Forwarded: no
+
+--- pfstools-2.0.5.orig/CMakeLists.txt
++++ pfstools-2.0.5/CMakeLists.txt
+@@ -284,9 +284,9 @@ if( OCTAVE_DEST_DIR )
+   set( OCTAVE_OCT_DIR ${OCTAVE_DEST_DIR} )
+   set( OCTAVE_M_DIR ${OCTAVE_DEST_DIR} )
+ else( OCTAVE_DEST_DIR )
+- execute_process(COMMAND octave-config --oct-site-dir OUTPUT_VARIABLE OCTAVE_OCT_DIR OUTPUT_STRIP_TRAILING_WHITESPACE)
++ execute_process(COMMAND octave-config --print LOCALOCTFILEDIR OUTPUT_VARIABLE OCTAVE_OCT_DIR OUTPUT_STRIP_TRAILING_WHITESPACE)
+  set( OCTAVE_OCT_DIR "${OCTAVE_OCT_DIR}/pfstools" )
+- execute_process(COMMAND octave-config --m-site-dir OUTPUT_VARIABLE OCTAVE_M_DIR OUTPUT_STRIP_TRAILING_WHITESPACE)
++ execute_process(COMMAND octave-config --print LOCALFCNFILEDIR OUTPUT_VARIABLE OCTAVE_M_DIR OUTPUT_STRIP_TRAILING_WHITESPACE)
+  set( OCTAVE_M_DIR "${OCTAVE_M_DIR}/pfstools" )
+ endif( OCTAVE_DEST_DIR ) 
+ 

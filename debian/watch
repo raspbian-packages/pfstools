@@ -1,0 +1,4 @@
+Version: 5
+
+Source: http://sf.net/pfstools/
+Matching-Pattern: pfstools-([0-9.]+)\.(?:tar\.gz|tgz)
