@@ -1,0 +1,14 @@
+Description: Bump cmake_minimum_required.
+Author: Andreas Metzler <ametzler@debian.org>
+Bug-Debian: https://bugs.debian.org/1113400
+Forwarded: https://groups.google.com/g/pfstools/c/6XVmUSiKo5k
+Last-Update: 2025-09-06
+
+--- pfstools-2.2.0.orig/CMakeLists.txt
++++ pfstools-2.2.0/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required (VERSION 2.8.8)
++cmake_minimum_required (VERSION 3.5.0)
+ project(pfstools)
+ 
+ set(CPACK_GENERATOR TGZ)
